@@ -109,7 +109,7 @@ function isPast(date, today) {
     container.innerHTML = '';
     for (let i = 0; i < 7; i++) {
       const dayDate = new Date(startOfWeek);
-      dayDate.setDate(FstartOfWeek.getDate() + i);
+      dayDate.setDate(startOfWeek.getDate() + i);
       const label = dayNames[dayDate.getDay()];
       const dayDiv = createDayDiv(dayDate, today, label);
       container.appendChild(dayDiv);
