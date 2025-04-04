@@ -5,43 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Women in Tech - Weekly Calendar</title>
-  <style>
-    body { font-family: sans-serif; padding: 2rem; background-color: #fdf6f0; color: #333; }
-    h1 { color: #cc3366; }
-    .calendar-week {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 10px;
-      margin-top: 2rem;
-    }
-    .day {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 1rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-    .date {
-      font-size: 0.9rem;
-      color: #888;
-      margin-top: 0.3rem;
-    }
-    .past {
-      background: #f0f0f0;
-      color: #aaa;
-      opacity: 0.6;
-    }
-    .today {
-      border: 2px solid #cc3366;
-      background-color: #ffe9f0;
-    }
-    nav a {
-      margin-right: 1rem;
-      color: #cc3366;
-      text-decoration: none;
-      font-weight: bold;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <nav>
@@ -57,9 +21,8 @@
     const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const today = new Date();
 
-    // Get Monday of the current week
     const startOfWeek = new Date(today);
-    const dayOffset = (today.getDay() + 6) % 7; // Make Monday = 0
+    const dayOffset = (today.getDay() + 6) % 7;
     startOfWeek.setDate(today.getDate() - dayOffset);
 
     for (let i = 0; i < 7; i++) {
@@ -70,16 +33,13 @@
       const dayNum = dayDate.getDate();
       const monthName = dayDate.toLocaleString('default', { month: 'long' });
 
-      // Build day element
       const dayDiv = document.createElement('div');
       dayDiv.classList.add('day');
 
-      // Grey out past days
       if (dayDate < new Date(today.toDateString())) {
         dayDiv.classList.add('past');
       }
 
-      // Highlight today
       if (dayDate.toDateString() === today.toDateString()) {
         dayDiv.classList.add('today');
       }
