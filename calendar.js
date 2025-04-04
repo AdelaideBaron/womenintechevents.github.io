@@ -90,4 +90,44 @@ export function renderMonthlyCalendar(year, month, options) {
     // Initial render
     render();
   }
+
+  // calendar.js
+
+export function setupWeekView() {
+    const calendar = document.getElementById('calendar');
+    const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const today = new Date();
+  
+    const startOfWeek = new Date(today);
+    const dayOffset = (today.getDay() + 6) % 7; // Make Monday = 0
+    startOfWeek.setDate(today.getDate() - dayOffset);
+  
+    renderWeekView(calendar, startOfWeek, today, dayNames);
+  }
+  
+  function renderWeekView(container, startOfWeek, today, dayNames) {
+    for (let i = 0; i < 7; i++) {
+      const dayDate = new Date(startOfWeek);
+      dayDate.setDate(startOfWeek.getDate() + i);
+  
+      const dayName = dayNames[dayDate.getDay()];
+      const dayNum = dayDate.getDate();
+      const monthName = dayDate.toLocaleString('default', { month: 'long' });
+  
+      const dayDiv = document.createElement('div');
+      dayDiv.classList.add('day');
+  
+      if (dayDate < new Date(today.toDateString())) {
+        dayDiv.classList.add('past');
+      }
+  
+      if (dayDate.toDateString() === today.toDateString()) {
+        dayDiv.classList.add('today');
+      }
+  
+      dayDiv.innerHTML = `<strong>${dayName}</strong><div class="date">${monthName} ${dayNum}</div>`;
+      container.appendChild(dayDiv);
+    }
+  }
+  
   
