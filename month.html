@@ -1,0 +1,42 @@
+<!-- month.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Women in Tech - Month View</title>
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+  <nav>
+    <a href="index.html">This Week</a>
+    <a href="month.html">Month View</a>
+  </nav>
+
+  <h1 id="month-title">Loading...</h1>
+  <div class="controls">
+    <button id="prevBtn" onclick="changeMonth(-1)">← Previous</button>
+    <button onclick="changeMonth(1)">Next →</button>
+  </div>
+
+  <div class="weekday-header">
+    <div>Mon</div>
+    <div>Tue</div>
+    <div>Wed</div>
+    <div>Thu</div>
+    <div>Fri</div>
+    <div>Sat</div>
+    <div>Sun</div>
+  </div>
+
+  <div class="calendar-month" id="month-grid"></div>
+
+  <script type="module">
+    import { setupMonthlyView } from './calendar.js';
+    setupMonthlyView();
+  </script>
+
+
+</body>
+</html>

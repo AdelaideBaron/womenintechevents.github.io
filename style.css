@@ -1,0 +1,95 @@
+/* style.css */
+
+body {
+    font-family: sans-serif;
+    padding: 2rem;
+    background-color: #fdf6f0;
+    color: #333;
+  }
+  
+  h1 {
+    color: #cc3366;
+  }
+  
+  .calendar-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-top: 2rem;
+  }
+
+  .weekday-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    font-weight: bold;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .calendar-month {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-top: 0.5rem;
+  }
+  
+  .day {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    height: 100px;
+      font-size: 0.8rem;
+  }
+  
+  .date {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 0.3rem;
+  }
+  
+  .past {
+    background: #f0f0f0;
+    color: #aaa;
+    opacity: 0.6;
+  }
+  
+  .today {
+    border: 2px solid #cc3366;
+    background-color: #ffe9f0;
+  }
+  
+  nav a {
+    margin-right: 1rem;
+    color: #cc3366;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  
+
+  .controls {
+    margin-top: 1rem;
+  }
+
+  button {
+    background: #3366cc;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin: 0 0.5rem;
+    cursor: pointer;
+  }
+
+  button:hover:not(:disabled) {
+    background: #254f99;
+  }
+
+  button:disabled {
+    background: #ff439b;
+    cursor: not-allowed;
+  }
+  
