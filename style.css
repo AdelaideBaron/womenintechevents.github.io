@@ -93,3 +93,39 @@ body {
     cursor: not-allowed;
   }
   
+ /* events  */
+  .event {
+    background-color: #fce1ec; /* Soft pink background */
+    border: 1px solid #cc3366;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px 0;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+  }
+  
+  .event-time {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #cc3366;
+  }
+  
+  .event-title {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  
+  .event-location {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 5px;
+  }
+  
+  .event-description {
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 5px;
+  }
+  
