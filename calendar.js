@@ -1,14 +1,35 @@
 // calendar.js
 
-export function renderMonthlyCalendar(year, month, options) {
-    const {
-      monthGrid,
-      title,
-      prevBtn,
-      today,
-      startYear,
-      startMonth
-    } = options;
+// --- Shared Helpers ---
+function isPast(date, today) {
+    return date < new Date(today.toDateString());
+  }
+  
+  function isToday(date, today) {
+    return date.toDateString() === today.toDateString();
+  }
+  
+  function createDayDiv(date, today, label = '') {
+    const dayDiv = document.createElement('div');
+    dayDiv.classList.add('day');
+  
+    if (isPast(date, today)) dayDiv.classList.add('past');
+    if (isToday(date, today)) dayDiv.classList.add('today');
+  
+    if (label) {
+      const monthName = date.toLocaleString('default', { month: 'long' });
+      const dayNum = date.getDate();
+      dayDiv.innerHTML = `<strong>${label}</strong><div class="date">${monthName} ${dayNum}</div>`;
+    } else {
+      dayDiv.textContent = date.getDate();
+    }
+  
+    return dayDiv;
+  }
+  
+  // --- Monthly View ---
+  export function renderMonthlyCalendar(year, month, options) {
+    const { monthGrid, title, prevBtn, today, startYear, startMonth } = options;
   
     monthGrid.innerHTML = '';
     const start = new Date(year, month, 1);
@@ -23,33 +44,16 @@ export function renderMonthlyCalendar(year, month, options) {
     if (firstDay === 0) firstDay = 7;
   
     for (let i = 1; i < firstDay; i++) {
-      const empty = document.createElement('div');
-      monthGrid.appendChild(empty);
+      monthGrid.appendChild(document.createElement('div'));
     }
   
     for (let i = 1; i <= daysInMonth; i++) {
       const thisDate = new Date(year, month, i);
-      const dayDiv = document.createElement('div');
-      dayDiv.classList.add('day');
-      dayDiv.textContent = i;
-  
-      if (thisDate < new Date(today.toDateString())) {
-        dayDiv.classList.add('past');
-      }
-  
-      if (
-        thisDate.getDate() === today.getDate() &&
-        thisDate.getMonth() === today.getMonth() &&
-        thisDate.getFullYear() === today.getFullYear()
-      ) {
-        dayDiv.classList.add('today');
-      }
-  
+      const dayDiv = createDayDiv(thisDate, today);
       monthGrid.appendChild(dayDiv);
     }
   }
   
-  // This handles full calendar setup, including changeMonth logic
   export function setupMonthlyView() {
     const monthGrid = document.getElementById('month-grid');
     const title = document.getElementById('month-title');
@@ -68,7 +72,7 @@ export function renderMonthlyCalendar(year, month, options) {
         prevBtn,
         today,
         startMonth,
-        startYear
+        startYear,
       });
     }
   
@@ -84,50 +88,31 @@ export function renderMonthlyCalendar(year, month, options) {
       render();
     }
   
-    // Expose changeMonth globally for button onclick
     window.changeMonth = changeMonth;
-  
-    // Initial render
     render();
   }
-
-  // calendar.js
-
-export function setupWeekView() {
+  
+  // --- Weekly View ---
+  export function setupWeekView() {
     const calendar = document.getElementById('calendar');
     const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const today = new Date();
   
     const startOfWeek = new Date(today);
-    const dayOffset = (today.getDay() + 6) % 7; // Make Monday = 0
+    const dayOffset = (today.getDay() + 6) % 7;
     startOfWeek.setDate(today.getDate() - dayOffset);
   
     renderWeekView(calendar, startOfWeek, today, dayNames);
   }
   
   function renderWeekView(container, startOfWeek, today, dayNames) {
+    container.innerHTML = '';
     for (let i = 0; i < 7; i++) {
       const dayDate = new Date(startOfWeek);
       dayDate.setDate(startOfWeek.getDate() + i);
-  
-      const dayName = dayNames[dayDate.getDay()];
-      const dayNum = dayDate.getDate();
-      const monthName = dayDate.toLocaleString('default', { month: 'long' });
-  
-      const dayDiv = document.createElement('div');
-      dayDiv.classList.add('day');
-  
-      if (dayDate < new Date(today.toDateString())) {
-        dayDiv.classList.add('past');
-      }
-  
-      if (dayDate.toDateString() === today.toDateString()) {
-        dayDiv.classList.add('today');
-      }
-  
-      dayDiv.innerHTML = `<strong>${dayName}</strong><div class="date">${monthName} ${dayNum}</div>`;
+      const label = dayNames[dayDate.getDay()];
+      const dayDiv = createDayDiv(dayDate, today, label);
       container.appendChild(dayDiv);
     }
   }
-  
   
