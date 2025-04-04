@@ -32,73 +32,11 @@
 
   <div class="calendar-month" id="month-grid"></div>
 
-  <script>
-    const monthGrid = document.getElementById('month-grid');
-    const title = document.getElementById('month-title');
-    const prevBtn = document.getElementById('prevBtn');
-
-    const today = new Date();
-    const startMonth = today.getMonth();
-    const startYear = today.getFullYear();
-    let currentMonth = startMonth;
-    let currentYear = startYear;
-
-    function renderCalendar(year, month) {
-      monthGrid.innerHTML = '';
-      const start = new Date(year, month, 1);
-      const monthName = start.toLocaleString('default', { month: 'long' });
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
-      title.textContent = `${monthName} ${year} - Full Month View`;
-
-      // Disable prev button if we're 3 months behind
-      const monthDiff = (startYear - year) * 12 + (startMonth - month);
-      prevBtn.disabled = monthDiff >= 3;
-
-      // Find the weekday the 1st lands on (adjusted to Monday start)
-      let firstDay = start.getDay(); // Sunday = 0, Monday = 1
-      if (firstDay === 0) firstDay = 7; // Shift Sunday to 7
-
-      // Add empty divs for padding before the 1st day
-      for (let i = 1; i < firstDay; i++) {
-        const empty = document.createElement('div');
-        monthGrid.appendChild(empty);
-      }
-
-      for (let i = 1; i <= daysInMonth; i++) {
-        const thisDate = new Date(year, month, i);
-        const dayDiv = document.createElement('div');
-        dayDiv.classList.add('day');
-        dayDiv.textContent = i;
-
-        if (thisDate < new Date(today.toDateString())) {
-          dayDiv.classList.add('past');
-        }
-
-        if (
-          thisDate.getDate() === today.getDate() &&
-          thisDate.getMonth() === today.getMonth() &&
-          thisDate.getFullYear() === today.getFullYear()
-        ) {
-          dayDiv.classList.add('today');
-        }
-
-        monthGrid.appendChild(dayDiv);
-      }
-    }
-
-    function changeMonth(delta) {
-      currentMonth += delta;
-      if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear += 1;
-      } else if (currentMonth < 0) {
-        currentMonth = 11;
-        currentYear -= 1;
-      }
-      renderCalendar(currentYear, currentMonth);
-    }
-
-    renderCalendar(currentYear, currentMonth);
+  <script type="module">
+    import { setupMonthlyView } from './calendar.js';
+    setupMonthlyView();
   </script>
+
+
 </body>
 </html>
