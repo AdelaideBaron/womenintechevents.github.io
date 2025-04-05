@@ -99,7 +99,7 @@ button:disabled {
 }
 
 .event-card {
-  background-color: #f0f8ff;
+  background-color: #e7afff;
   padding: 0.5em;
   margin-top: 0.3em;
   border-radius: 8px;
@@ -108,7 +108,7 @@ button:disabled {
 }
 
 .event-card:hover {
-  background-color: #e0efff;
+  background-color: #b470d1;
   transform: scale(1.02);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
@@ -175,12 +175,12 @@ button:disabled {
   padding: 0.3em 0.4em;
   margin-top: 0.2em;
   border-radius: 6px;
-  background-color: #fdf6e3;
+  background-color: #e7afff;
   transition: background-color 0.2s ease;
 }
 
 .week-view .event-card:hover {
-  background-color: #fcefc7;
+  background-color: #b470d1;
   transform: none;
   box-shadow: none;
 }
