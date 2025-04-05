@@ -28,13 +28,11 @@
     <div class="calendar-month" id="month-grid"></div>
 
     <div id="modal-container"></div>
-    <!-- Modal imported here -->
 
     <script type="module">
       import { setupMonthlyView } from "./calendar.js";
       setupMonthlyView();
 
-      // Load the header and modal content dynamically
       fetch("header.html")
         .then((response) => response.text())
         .then((html) => (document.getElementById("header").innerHTML = html));

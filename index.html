@@ -8,18 +8,15 @@
   </head>
   <body class="week-view">
     <div id="header"></div>
-    <!-- Navigation imported here -->
     <h1>This Week’s Events</h1>
     <div class="calendar-week" id="calendar"></div>
 
     <div id="modal-container"></div>
-    <!-- Modal imported here -->
 
     <script type="module">
       import { setupWeekView } from "./calendar.js";
       setupWeekView();
 
-      // Load the header and modal content dynamically
       fetch("header.html")
         .then((response) => response.text())
         .then((html) => (document.getElementById("header").innerHTML = html));
@@ -33,3 +30,4 @@
     </script>
   </body>
 </html>
+<!-- abc -->

@@ -18,14 +18,12 @@ function createDayDiv(date, today, label = "", events = []) {
   const monthName = date.toLocaleString("default", { month: "long" });
   const dayNum = date.getDate();
 
-  // Header section
   if (label) {
     dayDiv.innerHTML = `<strong>${label}</strong><div class="date">${monthName} ${dayNum}</div>`;
   } else {
     dayDiv.innerHTML = `<div class="date">${dayNum}</div>`;
   }
 
-  // Format date to YYYY-MM-DD to match event date
   const dateStr = date.toISOString().split("T")[0];
 
   const matchingEvents = events.filter((event) => event.date === dateStr);
@@ -167,7 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.classList.add("hidden");
   });
 
-  // Optional: click outside modal to close
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
       modal.classList.add("hidden");
@@ -175,7 +172,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Function to open the modal and show event details
 export function showModal(event) {
   document.getElementById("modal-title").textContent = event.title;
   document.getElementById("modal-date").textContent = event.date;
@@ -188,23 +184,18 @@ export function showModal(event) {
   document.getElementById("modal-description").textContent = event.description;
   document.getElementById("modal-type").textContent = event.event_type;
 
-  // Set the hyperlink dynamically
   const modalLink = document.getElementById("modal-link");
   modalLink.textContent = event.link;
   modalLink.setAttribute("href", event.link);
 
-  // Show the modal
   document.getElementById("event-modal").classList.remove("hidden");
 
-  // Attach the close modal functionality here after the modal is displayed
   document.getElementById("close-modal").addEventListener("click", function () {
     document.getElementById("event-modal").classList.add("hidden");
   });
 }
 
-// Function to load header and modal templates dynamically
 function loadTemplate() {
-  // Load the header and modal content dynamically
   fetch("header.html")
     .then((response) => response.text())
     .then((html) => (document.getElementById("header").innerHTML = html));
@@ -214,7 +205,6 @@ function loadTemplate() {
     .then((html) => {
       document.getElementById("modal-container").innerHTML = html;
 
-      // Reattach the close modal event listener after modal is injected
       document
         .getElementById("close-modal")
         .addEventListener("click", function () {
@@ -223,5 +213,4 @@ function loadTemplate() {
     });
 }
 
-// Load templates when the page is loaded
 document.addEventListener("DOMContentLoaded", loadTemplate);
