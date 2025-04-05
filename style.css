@@ -92,6 +92,23 @@ body {
     background: #ff439b;
     cursor: not-allowed;
   }
+
+  .day {
+    position: relative;
+    padding: 0.5em;
+    border: 1px solid #ddd;
+    min-height: 100px;
+  }
+  
+  .event-card {
+    background: #f0f8ff;
+    border-left: 4px solid #007bff;
+    margin-top: 5px;
+    padding: 3px 6px;
+    font-size: 0.8em;
+    border-radius: 4px;
+  }
+  
   
  /* events  */
   .event {

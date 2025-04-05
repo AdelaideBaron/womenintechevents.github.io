@@ -9,27 +9,44 @@ function isPast(date, today) {
     return date.toDateString() === today.toDateString();
   }
   
-  function createDayDiv(date, today, label = '') {
+  function createDayDiv(date, today, label = '', events = []) {
     const dayDiv = document.createElement('div');
     dayDiv.classList.add('day');
   
     if (isPast(date, today)) dayDiv.classList.add('past');
     if (isToday(date, today)) dayDiv.classList.add('today');
   
+    const monthName = date.toLocaleString('default', { month: 'long' });
+    const dayNum = date.getDate();
+  
+    // Header section
     if (label) {
-      const monthName = date.toLocaleString('default', { month: 'long' });
-      const dayNum = date.getDate();
       dayDiv.innerHTML = `<strong>${label}</strong><div class="date">${monthName} ${dayNum}</div>`;
     } else {
-      dayDiv.textContent = date.getDate();
+      dayDiv.innerHTML = `<div class="date">${dayNum}</div>`;
     }
+  
+    // Format date to YYYY-MM-DD to match event date
+    const dateStr = date.toISOString().split('T')[0];
+  
+    const matchingEvents = events.filter(event => event.date === dateStr);
+    matchingEvents.forEach(event => {
+      const eventCard = document.createElement('div');
+      eventCard.classList.add('event-card');
+      eventCard.innerHTML = `
+        <div class="event-title">${event.title}</div>
+        <div class="event-time">${event.time}</div>
+      `;
+      dayDiv.appendChild(eventCard);
+    });
   
     return dayDiv;
   }
   
+  
   // --- Monthly View ---
   export function renderMonthlyCalendar(year, month, options) {
-    const { monthGrid, title, prevBtn, today, startYear, startMonth } = options;
+    const { monthGrid, title, prevBtn, today, startYear, startMonth, events = [] } = options;
   
     monthGrid.innerHTML = '';
     const start = new Date(year, month, 1);
@@ -49,10 +66,21 @@ function isPast(date, today) {
   
     for (let i = 1; i <= daysInMonth; i++) {
       const thisDate = new Date(year, month, i);
-      const dayDiv = createDayDiv(thisDate, today);
+      const dayDiv = createDayDiv(thisDate, today, '', events);
       monthGrid.appendChild(dayDiv);
     }
   }
+  
+  
+  const events = [
+    {
+      date: '2025-04-05', 
+      time: '11:00 PM', 
+      title: 'Page Launch', 
+      location: 'Online', 
+      description: 'Creation of this website'
+    }
+  ];
   
   export function setupMonthlyView() {
     const monthGrid = document.getElementById('month-grid');
@@ -73,6 +101,7 @@ function isPast(date, today) {
         today,
         startMonth,
         startYear,
+        events
       });
     }
   
@@ -91,6 +120,7 @@ function isPast(date, today) {
     window.changeMonth = changeMonth;
     render();
   }
+  
   
   // --- Weekly View ---
   export function setupWeekView() {
