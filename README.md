@@ -1,7 +1,5 @@
 # womenintechevents.github.io
 
-# womenintechevents.github.io
-
 A simple webpage for displaying women in tech events in one place.
 
 ### Events to include:
