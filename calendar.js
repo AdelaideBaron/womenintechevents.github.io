@@ -34,7 +34,7 @@ function createDayDiv(date, today, label = "", events = []) {
     eventCard.classList.add("event-card");
     eventCard.innerHTML = `
       <div class="event-title">${event.title}</div>
-      <div class="event-time">${event.time}</div>
+      <div class="event-time">${event.time} - ${event.finish_time}</div> <!-- Display Finish Time -->
     `;
 
     eventCard.addEventListener("click", () => {
@@ -51,10 +51,10 @@ function showEventModal(event) {
   document.getElementById("modal-title").textContent = event.title;
   document.getElementById("modal-date").textContent = event.date;
   document.getElementById("modal-time").textContent = event.time;
+  document.getElementById("modal-finish-time").textContent = event.finish_time;
   document.getElementById("modal-location").textContent = event.location;
   document.getElementById("modal-description").textContent = event.description;
   document.getElementById("modal-type").textContent = event.event_type;
-
   document.getElementById("event-modal").classList.remove("hidden");
 }
 
