@@ -1,25 +1,24 @@
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Women in Tech - Weekly Calendar</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <nav>
-    <a href="index.html">This Week</a>
-    <a href="month.html">Month View</a>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Women in Tech - Weekly Calendar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">This Week</a>
+      <a href="month.html">Month View</a>
+    </nav>
 
-  <h1>This Week’s Events</h1>
-  <div class="calendar-week" id="calendar"></div>
+    <h1>This Week’s Events</h1>
+    <div class="calendar-week" id="calendar"></div>
 
-  <script type="module">
-    import { setupWeekView } from './calendar.js';
-    setupWeekView();
-  </script>
-  
-</body>
+    <script type="module">
+      import { setupWeekView } from "./calendar.js";
+      setupWeekView();
+    </script>
+  </body>
 </html>
