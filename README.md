@@ -11,7 +11,7 @@ A simple webpage for displaying women in tech events in one place.
 - **Grants & bursaries**
 - **Mentorship programs**
 
-(not a limitation)
+***(not a limitation)***
 
 ---
 
@@ -40,4 +40,4 @@ I've missed many events or opportunities just because I didn’t check the right
 - I'm **Adelaide**, and I am a **backend software engineer**!
 - Those of you who know me, know that I **hate frontend development**, so that’s why this page is nice and basic! 😅
 
-__Made by [@codeaddi](https://www.instagram.com/codeaddi/)__
+***Made by [@codeaddi](https://www.instagram.com/codeaddi/)***
