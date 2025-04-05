@@ -1,3 +1,5 @@
+import { events } from './event_log.js';
+
 // calendar.js
 
 // --- Shared Helpers ---
@@ -72,15 +74,15 @@ function isPast(date, today) {
   }
   
   // todo - moving the below 
-  const events = [
-    {
-      date: '2025-04-05', 
-      time: '11:00 PM', 
-      title: 'Page Launch', 
-      location: 'Online', 
-      description: 'Creation of this website'
-    }
-  ];
+  // const events = [
+  //   {
+  //     date: '2025-04-05', 
+  //     time: '11:00 PM', 
+  //     title: 'Page Launch', 
+  //     location: 'Online', 
+  //     description: 'Creation of this website'
+  //   }
+  // ];
   
   export function setupMonthlyView() {
     const monthGrid = document.getElementById('month-grid');
