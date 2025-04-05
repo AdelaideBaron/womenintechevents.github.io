@@ -53,9 +53,14 @@ function showEventModal(event) {
   document.getElementById("modal-time").textContent = event.time;
   document.getElementById("modal-finish-time").textContent = event.finish_time;
   document.getElementById("modal-location").textContent = event.location;
+  document.getElementById("modal-country").textContent = event.country;
+  document.getElementById("modal-cost").textContent = event.cost;
+  document.getElementById("modal-audience").textContent = event.audience;
+
   document.getElementById("modal-description").textContent = event.description;
   document.getElementById("modal-type").textContent = event.event_type;
   document.getElementById("event-modal").classList.remove("hidden");
+  document.getElementById("modal-link").textContent = event.link;
 }
 
 export function renderMonthlyCalendar(year, month, options) {
