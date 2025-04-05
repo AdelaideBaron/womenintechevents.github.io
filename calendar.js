@@ -71,7 +71,7 @@ function isPast(date, today) {
     }
   }
   
-  
+  // todo - moving the below 
   const events = [
     {
       date: '2025-04-05', 
@@ -132,17 +132,19 @@ function isPast(date, today) {
     const dayOffset = (today.getDay() + 6) % 7;
     startOfWeek.setDate(today.getDate() - dayOffset);
   
-    renderWeekView(calendar, startOfWeek, today, dayNames);
+    renderWeekView(calendar, startOfWeek, today, dayNames, events);
   }
   
-  function renderWeekView(container, startOfWeek, today, dayNames) {
+  function renderWeekView(container, startOfWeek, today, dayNames, events = []) {
     container.innerHTML = '';
     for (let i = 0; i < 7; i++) {
       const dayDate = new Date(startOfWeek);
       dayDate.setDate(startOfWeek.getDate() + i);
       const label = dayNames[dayDate.getDay()];
-      const dayDiv = createDayDiv(dayDate, today, label);
+      const dayDiv = createDayDiv(dayDate, today, label, events);
       container.appendChild(dayDiv);
     }
   }
+  
+
   
