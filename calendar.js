@@ -1,8 +1,6 @@
 import { events } from './event_log.js';
 
-// calendar.js
 
-// --- Shared Helpers ---
 function isPast(date, today) {
     return date < new Date(today.toDateString());
   }
@@ -45,9 +43,7 @@ function isPast(date, today) {
     return dayDiv;
   }
   
-  
-  // --- Monthly View ---
-  export function renderMonthlyCalendar(year, month, options) {
+    export function renderMonthlyCalendar(year, month, options) {
     const { monthGrid, title, prevBtn, today, startYear, startMonth, events = [] } = options;
   
     monthGrid.innerHTML = '';
@@ -72,17 +68,6 @@ function isPast(date, today) {
       monthGrid.appendChild(dayDiv);
     }
   }
-  
-  // todo - moving the below 
-  // const events = [
-  //   {
-  //     date: '2025-04-05', 
-  //     time: '11:00 PM', 
-  //     title: 'Page Launch', 
-  //     location: 'Online', 
-  //     description: 'Creation of this website'
-  //   }
-  // ];
   
   export function setupMonthlyView() {
     const monthGrid = document.getElementById('month-grid');
@@ -123,9 +108,7 @@ function isPast(date, today) {
     render();
   }
   
-  
-  // --- Weekly View ---
-  export function setupWeekView() {
+    export function setupWeekView() {
     const calendar = document.getElementById('calendar');
     const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const today = new Date();
