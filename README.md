@@ -11,6 +11,8 @@ A simple webpage for displaying women in tech events in one place.
 - **Grants & bursaries**
 - **Mentorship programs**
 
+(not a limitation)
+
 ---
 
 ## Submitting a New Event
