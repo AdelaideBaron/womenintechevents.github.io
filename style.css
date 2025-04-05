@@ -169,3 +169,18 @@ button:disabled {
   cursor: pointer;
   font-size: 20px;
 }
+
+.week-view .event-card {
+  font-size: 0.8em;
+  padding: 0.3em 0.4em;
+  margin-top: 0.2em;
+  border-radius: 6px;
+  background-color: #fdf6e3;
+  transition: background-color 0.2s ease;
+}
+
+.week-view .event-card:hover {
+  background-color: #fcefc7;
+  transform: none;
+  box-shadow: none;
+}
