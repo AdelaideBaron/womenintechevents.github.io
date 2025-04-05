@@ -53,9 +53,14 @@ function showEventModal(event) {
   document.getElementById("modal-time").textContent = event.time;
   document.getElementById("modal-finish-time").textContent = event.finish_time;
   document.getElementById("modal-location").textContent = event.location;
+  document.getElementById("modal-country").textContent = event.country;
+  document.getElementById("modal-cost").textContent = event.cost;
+  document.getElementById("modal-audience").textContent = event.audience;
+
   document.getElementById("modal-description").textContent = event.description;
   document.getElementById("modal-type").textContent = event.event_type;
   document.getElementById("event-modal").classList.remove("hidden");
+  document.getElementById("modal-link").textContent = event.link;
 }
 
 export function renderMonthlyCalendar(year, month, options) {
@@ -169,3 +174,54 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// Function to open the modal and show event details
+export function showModal(event) {
+  document.getElementById("modal-title").textContent = event.title;
+  document.getElementById("modal-date").textContent = event.date;
+  document.getElementById("modal-time").textContent = event.time;
+  document.getElementById("modal-finish-time").textContent = event.finish_time;
+  document.getElementById("modal-location").textContent = event.location;
+  document.getElementById("modal-country").textContent = event.country;
+  document.getElementById("modal-cost").textContent = event.cost;
+  document.getElementById("modal-audience").textContent = event.target_audience;
+  document.getElementById("modal-description").textContent = event.description;
+  document.getElementById("modal-type").textContent = event.event_type;
+
+  // Set the hyperlink dynamically
+  const modalLink = document.getElementById("modal-link");
+  modalLink.textContent = event.link;
+  modalLink.setAttribute("href", event.link);
+
+  // Show the modal
+  document.getElementById("event-modal").classList.remove("hidden");
+
+  // Attach the close modal functionality here after the modal is displayed
+  document.getElementById("close-modal").addEventListener("click", function () {
+    document.getElementById("event-modal").classList.add("hidden");
+  });
+}
+
+// Function to load header and modal templates dynamically
+function loadTemplate() {
+  // Load the header and modal content dynamically
+  fetch("header.html")
+    .then((response) => response.text())
+    .then((html) => (document.getElementById("header").innerHTML = html));
+
+  fetch("modal.html")
+    .then((response) => response.text())
+    .then((html) => {
+      document.getElementById("modal-container").innerHTML = html;
+
+      // Reattach the close modal event listener after modal is injected
+      document
+        .getElementById("close-modal")
+        .addEventListener("click", function () {
+          document.getElementById("event-modal").classList.add("hidden");
+        });
+    });
+}
+
+// Load templates when the page is loaded
+document.addEventListener("DOMContentLoaded", loadTemplate);

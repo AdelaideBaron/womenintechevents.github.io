@@ -148,6 +148,8 @@ button:disabled {
   max-width: 400px;
   border-radius: 10px;
   position: relative;
+  word-wrap: break-word; /* Ensures long URLs break to the next line */
+  white-space: normal; /* Allow wrapping */
 }
 
 .close {
