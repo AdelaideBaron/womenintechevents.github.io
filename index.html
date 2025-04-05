@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,49 +7,29 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="week-view">
-    <nav>
-      <a href="index.html">This Week</a>
-      <a href="month.html">Month View</a>
-    </nav>
-
+    <div id="header"></div>
+    <!-- Navigation imported here -->
     <h1>This Week’s Events</h1>
     <div class="calendar-week" id="calendar"></div>
 
-    <div id="event-modal" class="modal hidden">
-      <div class="modal-content">
-        <span id="close-modal" class="close">&times;</span>
-        <h2 id="modal-title"></h2>
-        <p><strong>📅Date:</strong> <span id="modal-date"></span></p>
-        <p><strong>⏰Time:</strong> <span id="modal-time"></span></p>
-        <p>
-          <strong>⏰Finish Time:</strong> <span id="modal-finish-time"></span>
-        </p>
-        <p><strong>📍Location:</strong> <span id="modal-location"></span></p>
-        <p><strong>🌍Country:</strong> <span id="modal-country"></span></p>
-        <p><strong>💲Cost:</strong> <span id="modal-cost"></span></p>
-        <p>
-          <strong> 🧍 Target Audience:</strong>
-          <span id="modal-audience"></span>
-        </p>
-        <p>
-          <strong>Description:</strong> <span id="modal-description"></span>
-        </p>
-        <p><strong>Type:</strong> <span id="modal-type"></span></p>
-        <p>
-          <strong>🔗 Link:</strong>
-          <a
-            id="modal-link"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-          ></a>
-        </p>
-      </div>
-    </div>
-    <!-- can the above be moved out to be communak or something?>  -->
+    <div id="modal-container"></div>
+    <!-- Modal imported here -->
+
     <script type="module">
       import { setupWeekView } from "./calendar.js";
       setupWeekView();
+
+      // Load the header and modal content dynamically
+      fetch("header.html")
+        .then((response) => response.text())
+        .then((html) => (document.getElementById("header").innerHTML = html));
+
+      fetch("modal.html")
+        .then((response) => response.text())
+        .then(
+          (html) =>
+            (document.getElementById("modal-container").innerHTML = html)
+        );
     </script>
   </body>
 </html>
