@@ -37,7 +37,6 @@ function createDayDiv(date, today, label = "", events = []) {
       <div class="event-time">${event.time}</div>
     `;
 
-    // ✅ Add click handler to open the modal
     eventCard.addEventListener("click", () => {
       showEventModal(event);
     });

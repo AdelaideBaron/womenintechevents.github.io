@@ -1,5 +1,4 @@
-/* style.css */
-
+/* ===== Base Styles ===== */
 body {
   font-family: sans-serif;
   padding: 2rem;
@@ -11,45 +10,53 @@ h1 {
   color: #cc3366;
 }
 
-.calendar-week {
+nav a {
+  margin-right: 1rem;
+  color: #cc3366;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ===== Layout Grids ===== */
+.calendar-week,
+.weekday-header,
+.calendar-month {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 10px;
   margin-top: 2rem;
 }
 
-.weekday-header {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
-  font-weight: bold;
-  margin-top: 2rem;
-  text-align: center;
-}
-
 .calendar-month {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
   gap: 8px;
   margin-top: 0.5rem;
 }
 
+.weekday-header {
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ===== Day Cell ===== */
 .day {
   background: white;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  height: 100px;
+  padding: 0.5em;
+  min-height: 100px;
   font-size: 0.8rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
+/* Date Text */
 .date {
   font-size: 0.9rem;
   color: #888;
   margin-top: 0.3rem;
 }
 
+/* Day States */
 .past {
   background: #f0f0f0;
   color: #aaa;
@@ -61,13 +68,7 @@ h1 {
   background-color: #ffe9f0;
 }
 
-nav a {
-  margin-right: 1rem;
-  color: #cc3366;
-  text-decoration: none;
-  font-weight: bold;
-}
-
+/* ===== Buttons & Controls ===== */
 .controls {
   margin-top: 1rem;
 }
@@ -91,13 +92,7 @@ button:disabled {
   cursor: not-allowed;
 }
 
-.day {
-  position: relative;
-  padding: 0.5em;
-  border: 1px solid #ddd;
-  min-height: 100px;
-}
-
+/* ===== Event Cards ===== */
 .event-card {
   background-color: #e7afff;
   padding: 0.5em;
@@ -113,30 +108,23 @@ button:disabled {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
-/* events  */
-.event {
-  background-color: #fce1ec; /* Soft pink background */
-  border: 1px solid #cc3366;
-  border-radius: 8px;
-  padding: 10px;
-  margin: 5px 0;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-  font-family: sans-serif;
+/* Adjusted style for weekly view */
+.week-view .event-card {
+  font-size: 0.8em;
+  padding: 0.3em 0.4em;
+  margin-top: 0.2em;
+  border-radius: 6px;
+  background-color: #e7afff;
+  transition: background-color 0.2s ease;
 }
 
-.event-time {
-  font-weight: bold;
-  font-size: 0.9rem;
-  color: #cc3366;
+.week-view .event-card:hover {
+  background-color: #b470d1;
+  transform: none;
+  box-shadow: none;
 }
 
-.event-title {
-  font-size: 1.1rem;
-  color: #333;
-  font-weight: bold;
-  margin-top: 5px;
-}
-
+/* ===== Expanded Event Details (Modal) ===== */
 .modal {
   position: fixed;
   top: 0;
@@ -170,17 +158,25 @@ button:disabled {
   font-size: 20px;
 }
 
-.week-view .event-card {
-  font-size: 0.8em;
-  padding: 0.3em 0.4em;
-  margin-top: 0.2em;
-  border-radius: 6px;
-  background-color: #e7afff;
-  transition: background-color 0.2s ease;
+/* Expanded event content */
+.event {
+  background-color: #fce1ec;
+  border: 1px solid #cc3366;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 5px 0;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
-.week-view .event-card:hover {
-  background-color: #b470d1;
-  transform: none;
-  box-shadow: none;
+.event-time {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #cc3366;
+}
+
+.event-title {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: bold;
+  margin-top: 5px;
 }
