@@ -16,6 +16,20 @@
     <h1>This Week’s Events</h1>
     <div class="calendar-week" id="calendar"></div>
 
+    <div id="event-modal" class="modal hidden">
+      <div class="modal-content">
+        <span id="close-modal" class="close">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p><strong>Date:</strong> <span id="modal-date"></span></p>
+        <p><strong>Time:</strong> <span id="modal-time"></span></p>
+        <p><strong>Location:</strong> <span id="modal-location"></span></p>
+        <p>
+          <strong>Description:</strong> <span id="modal-description"></span>
+        </p>
+        <p><strong>Type:</strong> <span id="modal-type"></span></p>
+      </div>
+    </div>
+
     <script type="module">
       import { setupWeekView } from "./calendar.js";
       setupWeekView();
