@@ -33,13 +33,29 @@ function createDayDiv(date, today, label = "", events = []) {
     const eventCard = document.createElement("div");
     eventCard.classList.add("event-card");
     eventCard.innerHTML = `
-        <div class="event-title">${event.title}</div>
-        <div class="event-time">${event.time}</div>
-      `;
+      <div class="event-title">${event.title}</div>
+      <div class="event-time">${event.time}</div>
+    `;
+
+    eventCard.addEventListener("click", () => {
+      showEventModal(event);
+    });
+
     dayDiv.appendChild(eventCard);
   });
 
   return dayDiv;
+}
+
+function showEventModal(event) {
+  document.getElementById("modal-title").textContent = event.title;
+  document.getElementById("modal-date").textContent = event.date;
+  document.getElementById("modal-time").textContent = event.time;
+  document.getElementById("modal-location").textContent = event.location;
+  document.getElementById("modal-description").textContent = event.description;
+  document.getElementById("modal-type").textContent = event.event_type;
+
+  document.getElementById("event-modal").classList.remove("hidden");
 }
 
 export function renderMonthlyCalendar(year, month, options) {
@@ -137,3 +153,19 @@ function renderWeekView(container, startOfWeek, today, dayNames, events = []) {
     container.appendChild(dayDiv);
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("event-modal");
+  const closeBtn = document.getElementById("close-modal");
+
+  closeBtn.addEventListener("click", () => {
+    modal.classList.add("hidden");
+  });
+
+  // Optional: click outside modal to close
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.classList.add("hidden");
+    }
+  });
+});
