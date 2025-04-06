@@ -13,6 +13,7 @@ export const events = [
     event_type: "",
     link: "",
     women_focussed: "✅❌",
+    // associated brand or group
   },
 ];
 // Use country codes, like UK, US
