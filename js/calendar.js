@@ -36,9 +36,12 @@ function createDayDiv(date, today, label = "", events = []) {
     const eventCard = document.createElement("div");
     eventCard.classList.add("event-card");
     eventCard.innerHTML = `
-      <div class="event-title">${event.title}</div>
-      <div class="event-time">${event.time} - ${event.finish_time}</div> <!-- Display Finish Time -->
-    `;
+    <div class="event-title"> ${event.title}</div>
+    <div class="event-time">🕒 ${event.time} - ${event.finish_time}</div>
+    <div class="event-location">📍 ${event.location}${
+      event.country ? ", " + event.country : ""
+    }</div>
+  `;
 
     eventCard.addEventListener("click", () => {
       showEventModal(event);
