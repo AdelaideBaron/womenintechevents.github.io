@@ -9,7 +9,21 @@
   <body class="view-all">
     <div id="header"></div>
     <h1>All Upcoming Events</h1>
+
+    <!-- Toggle Buttons -->
+    <div>
+      <button id="list-view-btn">List View</button>
+      <button id="map-view-btn">Map View</button>
+    </div>
+
+    <!-- List View -->
     <div id="event-list"></div>
+
+    <!-- Map View (blank for now) -->
+    <div id="map-view" style="display: none">
+      <p>Map View is coming soon...</p>
+      <!-- Placeholder for future map -->
+    </div>
 
     <div id="modal-container"></div>
 
@@ -43,6 +57,16 @@
           });
       }
 
+      function switchToMapView() {
+        document.getElementById("event-list").style.display = "none";
+        document.getElementById("map-view").style.display = "block";
+      }
+
+      function switchToListView() {
+        document.getElementById("event-list").style.display = "block";
+        document.getElementById("map-view").style.display = "none";
+      }
+
       document.addEventListener("DOMContentLoaded", () => {
         fetch("header.html")
           .then((response) => response.text())
@@ -56,6 +80,14 @@
           );
 
         renderAllEvents(events);
+
+        // Button Click Handlers for Switching Views
+        document
+          .getElementById("list-view-btn")
+          .addEventListener("click", switchToListView);
+        document
+          .getElementById("map-view-btn")
+          .addEventListener("click", switchToMapView);
       });
     </script>
   </body>
