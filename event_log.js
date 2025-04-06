@@ -151,6 +151,21 @@ export const events = [
     event_type: "Tech Group Meetup",
     link: "https://www.meetup.com/women-in-technology-north/events/305587827/?eventOrigin=group_upcoming_events",
   },
+
+  {
+    date: "2025-09-25",
+    time: "08:30 AM",
+    finish_time: "10:30 PM",
+    title: "AWS Community Summit 2025",
+    location: "Manchester",
+    country: "UK",
+    cost: "£50",
+    audience: "All",
+    description:
+      "A one day conference dedicated to all things AWS and the community.  25+ sessions, 3 tracks. Followed by networking, food and entertainment.",
+    event_type: "Conference",
+    link: "https://www.tickettailor.com/events/comsum25/1638087",
+  },
   {
     date: "2025-09-30",
     time: "09:00 AM",
