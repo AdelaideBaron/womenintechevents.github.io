@@ -7,7 +7,8 @@ export const events = [
     location: "Online",
     country: "N/A",
     cost: "free",
-    audience: "all",
+    audience: "Any",
+    women_focussed: "✅",
     description: "Creation of this website",
     event_type: "Occasion",
     link: "https://adelaidebaron.github.io/womenintechevents.github.io/month.html",
@@ -21,6 +22,7 @@ export const events = [
     country: "UK",
     cost: "free",
     audience: "Professionals",
+    women_focussed: "✅",
     description:
       "SuperWomen In Tech: The EAA and how to include accessibility into your processes",
     event_type: "Tech Group Meetup",
@@ -35,6 +37,7 @@ export const events = [
     country: "UK",
     cost: "free",
     audience: "Professionals",
+    women_focussed: "❌",
     description:
       "Automating open source LLM fine-tuning, monitoring and cloud deployment",
     event_type: "Tech Group Meetup",
@@ -49,6 +52,7 @@ export const events = [
     country: "UK",
     cost: "free",
     audience: "Professionals",
+    women_focussed: "✅",
     description: "Careers in health data - HER+Data MCR Meetup ",
     event_type: "Tech Group Meetup",
     link: "https://www.meetup.com/herplusdatamcr/events/305474684/?recId=f6cdedfa-1969-4535-a1a6-f98109b702d3&recSource=event-search&searchId=7a99f8b5-e610-4b17-88e6-a559f0d128fa&eventOrigin=find_page%24all",
@@ -61,9 +65,10 @@ export const events = [
     location: "Online",
     country: "N/A",
     cost: "free",
-    audience: "21yo+, junior-mid (first 5 years)",
+    audience: "Junior",
+    women_focussed: "✅",
     description:
-      "A grant to attent re:Invent. It includes: ✈️ Round-trip airfare to Philadelphia 🏨 Four nights of hotel accommodations 🎟️ Full conference pass to re:Inforce 2025",
+      "21yo+ (first 5 years), A grant to attent re:Invent. It includes: ✈️ Round-trip airfare to Philadelphia 🏨 Four nights of hotel accommodations 🎟️ Full conference pass to re:Inforce 2025",
     event_type: "Grant Application",
     link: "https://reinforce.awsevents.com/community/all-builders-welcome/",
   },
@@ -76,6 +81,7 @@ export const events = [
     country: "UK",
     cost: "free",
     audience: "All",
+    women_focussed: "❌",
     description:
       "Join us to learn about how Apache Iceberg will revolutionise the Data Warehousing/Lakehouse architecture on AWS.",
     event_type: "Tech Group Meetup",
@@ -89,7 +95,8 @@ export const events = [
     location: "Online",
     country: "NA",
     cost: "free",
-    audience: "any",
+    audience: "All",
+    women_focussed: "❌",
     description:
       "Learning by watching other testers do their thing helps visualise concepts and gain insight into how the activities of testing are executed.In Episode three, our host Ben Dowen, aka the Full Snack Tester, is joined by fabulous Brittany Stewart.",
     event_type: "Online Talk",
@@ -104,6 +111,7 @@ export const events = [
     country: "UK",
     cost: "free",
     audience: "All",
+    women_focussed: "❌",
     description:
       "In April we are welcoming Peter Bull to Liverpool who will be presenting a topic on Design & Develop Windows Widgets via Generative!",
     event_type: "Tech Group Meetup",
@@ -118,6 +126,7 @@ export const events = [
     country: "UK",
     cost: "free",
     audience: "All",
+    women_focussed: "✅",
     description:
       "This interactive session will help you take the first steps on your speaking journey.",
     event_type: "Tech Group Meetup",
@@ -132,6 +141,7 @@ export const events = [
     country: "UK",
     cost: "free",
     audience: "All",
+    women_focussed: "❌",
     description:
       "Performance testing modern cloud and older heritage technology.",
     event_type: "Tech Group Meetup",
@@ -146,13 +156,14 @@ export const events = [
     country: "UK",
     cost: "free",
     audience: "All",
+    women_focussed: "✅",
     description:
       "Join WIT-North and Axon Moore for an inspiring evening of networking and career insights at our Career Navigation Event.",
     event_type: "Tech Group Meetup",
     link: "https://www.meetup.com/women-in-technology-north/events/305587827/?eventOrigin=group_upcoming_events",
   },
 
-   {
+  {
     date: "2025-09-25",
     time: "08:30 AM",
     finish_time: "10:30 PM",
@@ -161,6 +172,7 @@ export const events = [
     country: "UK",
     cost: "£50",
     audience: "All",
+    women_focussed: "❌",
     description:
       "A one day conference dedicated to all things AWS and the community.  25+ sessions, 3 tracks. Followed by networking, food and entertainment.",
     event_type: "Conference",
@@ -174,7 +186,8 @@ export const events = [
     location: "Brighton",
     country: "UK",
     cost: "£499",
-    audience: "Management + ",
+    audience: "Management",
+    women_focussed: "❌",
     description:
       "A one-day educational experience to help business lead with expanding quality engineering and testing practices.",
     event_type: "Conference",
@@ -189,6 +202,7 @@ export const events = [
     country: "UK",
     cost: "£449 - 899",
     audience: "Professionals",
+    women_focussed: "❌",
     description: "TestBash: the largest software testing conference in the UK.",
     event_type: "Conference",
     link: "https://www.ministryoftesting.com/events/testbash-brighton-2025",
@@ -202,6 +216,7 @@ export const events = [
     country: "UK",
     cost: "£449 - 899",
     audience: "Professionals",
+    women_focussed: "❌",
     description: "TestBash: the largest software testing conference in the UK.",
     event_type: "Conference",
     link: "https://www.ministryoftesting.com/events/testbash-brighton-2025",
