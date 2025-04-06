@@ -152,7 +152,7 @@ export const events = [
     link: "https://www.meetup.com/women-in-technology-north/events/305587827/?eventOrigin=group_upcoming_events",
   },
 
-  {
+   {
     date: "2025-09-25",
     time: "08:30 AM",
     finish_time: "10:30 PM",
