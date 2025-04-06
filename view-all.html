@@ -31,11 +31,29 @@
       import { events } from "./js/event_log.js";
       import { showModal } from "./js/calendar.js";
 
+      // Function to check if the event's date is in the future
+      function isFutureEvent(eventDate) {
+        const today = new Date();
+        const eventDateObj = new Date(eventDate);
+
+        // Remove time components (set to midnight) for accurate comparison
+        today.setHours(0, 0, 0, 0);
+        eventDateObj.setHours(0, 0, 0, 0);
+
+        return eventDateObj >= today; // Returns true if the event is tomorrow or later
+      }
+
       function renderAllEvents(events) {
         const list = document.getElementById("event-list");
         list.innerHTML = "";
 
-        events
+        // Filter events to only include future events
+        const futureEvents = events.filter((event) =>
+          isFutureEvent(event.date)
+        );
+
+        // Sort events by date
+        futureEvents
           .sort((a, b) => new Date(a.date) - new Date(b.date))
           .forEach((event) => {
             const div = document.createElement("div");
