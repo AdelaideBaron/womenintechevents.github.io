@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Women in Tech - All Events</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body class="view-all">
+    <div id="header"></div>
+    <h1>All Upcoming Events</h1>
+
+    <!-- Toggle Buttons -->
+    <div>
+      <button id="list-view-btn">List View</button>
+      <button id="map-view-btn">Map View</button>
+    </div>
+
+    <!-- List View -->
+    <div id="event-list"></div>
+
+    <!-- Map View (blank for now) -->
+    <div id="map-view" style="display: none">
+      <p>Map View is coming soon...</p>
+      <!-- Placeholder for future map -->
+    </div>
+
+    <div id="modal-container"></div>
+
+    <script type="module">
+      import { events } from "./js/event_log.js";
+      import { showModal } from "./js/calendar.js";
+
+      // Function to check if the event's date is in the future
+      function isFutureEvent(eventDate) {
+        const today = new Date();
+        const eventDateObj = new Date(eventDate);
+
+        // Remove time components (set to midnight) for accurate comparison
+        today.setHours(0, 0, 0, 0);
+        eventDateObj.setHours(0, 0, 0, 0);
+
+        return eventDateObj >= today; // Returns true if the event is tomorrow or later
+      }
+
+      function renderAllEvents(events) {
+        const list = document.getElementById("event-list");
+        list.innerHTML = "";
+
+        // Filter events to only include future events
+        const futureEvents = events.filter((event) =>
+          isFutureEvent(event.date)
+        );
+
+        // Sort events by date
+        futureEvents
+          .sort((a, b) => new Date(a.date) - new Date(b.date))
+          .forEach((event) => {
+            const div = document.createElement("div");
+            div.classList.add("event-card");
+
+            div.innerHTML = `
+              <div class="event-title">🌟 ${event.title}</div>
+              <div class="event-time">🕒 ${event.time} - ${event.finish_time}</div>
+              <div class="event-date">📅 ${event.date}</div>
+              <div class="event-location">📍 ${event.location}, ${event.country}</div>
+              <div class="event-type">📂 ${event.event_type}</div>
+            `;
+
+            div.addEventListener("click", () => {
+              showModal(event);
+            });
+
+            list.appendChild(div);
+          });
+      }
+
+      function switchToMapView() {
+        document.getElementById("event-list").style.display = "none";
+        document.getElementById("map-view").style.display = "block";
+      }
+
+      function switchToListView() {
+        document.getElementById("event-list").style.display = "block";
+        document.getElementById("map-view").style.display = "none";
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("header.html")
+          .then((response) => response.text())
+          .then((html) => (document.getElementById("header").innerHTML = html));
+
+        fetch("modal.html")
+          .then((response) => response.text())
+          .then(
+            (html) =>
+              (document.getElementById("modal-container").innerHTML = html)
+          );
+
+        renderAllEvents(events);
+
+        // Button Click Handlers for Switching Views
+        document
+          .getElementById("list-view-btn")
+          .addEventListener("click", switchToListView);
+        document
+          .getElementById("map-view-btn")
+          .addEventListener("click", switchToMapView);
+      });
+    </script>
+  </body>
+</html>
