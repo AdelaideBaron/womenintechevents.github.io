@@ -57,6 +57,9 @@ function showEventModal(event) {
   document.getElementById("modal-finish-time").textContent = event.finish_time;
   document.getElementById("modal-location").textContent = event.location;
   document.getElementById("modal-country").textContent = event.country;
+  document.getElementById("modal-women-focussed").textContent =
+    event.women_focussed;
+
   document.getElementById("modal-cost").textContent = event.cost;
   document.getElementById("modal-audience").textContent = event.audience;
 
@@ -178,12 +181,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 export function showModal(event) {
+  // difference between this & show event modal?
   document.getElementById("modal-title").textContent = event.title;
   document.getElementById("modal-date").textContent = event.date;
   document.getElementById("modal-time").textContent = event.time;
   document.getElementById("modal-finish-time").textContent = event.finish_time;
   document.getElementById("modal-location").textContent = event.location;
   document.getElementById("modal-country").textContent = event.country;
+  document.getElementById("modal-women-focussed").textContent =
+    event.women_focussed;
   document.getElementById("modal-cost").textContent = event.cost;
   document.getElementById("modal-audience").textContent = event.target_audience;
   document.getElementById("modal-description").textContent = event.description;
