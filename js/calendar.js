@@ -87,7 +87,7 @@ export function renderMonthlyCalendar(year, month, options) {
   const start = new Date(year, month, 1);
   const monthName = start.toLocaleString("default", { month: "long" });
   const daysInMonth = new Date(year, month + 1, 0).getDate();
-  title.textContent = `${monthName} ${year} - Full Month View`;
+  title.textContent = `${monthName} ${year}`.toUpperCase();
 
   const monthDiff = (startYear - year) * 12 + (startMonth - month);
   prevBtn.disabled = monthDiff >= 3;
