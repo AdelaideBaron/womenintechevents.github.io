@@ -81,7 +81,7 @@ nav a {
 }
 
 button {
-  background: #9917c9; /* change colour */
+  background: #e23d63; /* change colour */
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -93,11 +93,11 @@ button {
 }
 
 button:hover:not(:disabled) {
-  background: #540471;
+  background: #c31f45;
 }
 
 button:disabled {
-  background: rgb(162, 111, 181);
+  background: rgb(162, 111, 181); /* update */
   cursor: not-allowed;
 }
 
