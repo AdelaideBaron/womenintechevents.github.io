@@ -9,21 +9,13 @@ body {
 h1,
 nav a {
   color: #ff5c5c;
+  font-family: "Boldonse", system-ui, sans-serif; /* Updated font */
 }
 
 nav a {
   margin-right: 1rem;
   text-decoration: none;
   font-weight: bold;
-}
-
-/* ===== Import and Set Font Family ===== */
-@font-face {
-  font-family: "Boldonse";
-  src: url("/path/to/Boldonse-Regular.woff2") format("woff2"),
-    url("/path/to/Boldonse-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
 }
 
 /* ===== Layout Grids ===== */
@@ -39,21 +31,12 @@ nav a {
 .calendar-month {
   gap: 8px;
   margin-top: 0.5rem;
-  color: #ff5c5c;
-  font-family: "Boldonse", system-ui, sans-serif; /* Apply Boldonse to calendar month */
 }
 
 .weekday-header {
   text-align: center;
   font-weight: bold;
-  color: #ff5c5c;
-  font-family: "Boldonse", system-ui, sans-serif; /* Apply Boldonse to weekday headers */
-}
-
-.calendar-week h2,
-.calendar-month h2 {
-  font-family: "Boldonse", system-ui, sans-serif; /* Apply Boldonse font to 'This Week' header */
-  color: #333;
+  font-family: "Boldonse", system-ui, sans-serif; /* Updated font */
 }
 
 /* ===== Day Cell ===== */
@@ -66,14 +49,13 @@ nav a {
   font-size: 0.8rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   position: relative;
-  font-family: "Boldonse", system-ui, sans-serif; /* Apply Boldonse to day cells */
+  font-family: "Boldonse", system-ui, sans-serif; /* Updated font */
 }
 
 .date {
-  font-size: 1rem;
-  color: #333;
+  font-size: 0.9rem;
+  color: #888;
   margin-top: 0.3rem;
-  font-family: "Boldonse", system-ui, sans-serif; /* Apply Boldonse to calendar numbers */
 }
 
 .past {
@@ -100,6 +82,8 @@ button {
   border-radius: 4px;
   margin: 0 0.5rem;
   cursor: pointer;
+  font-family: "Boldonse", system-ui, sans-serif; /* Updated font */
+  font-weight: 400;
 }
 
 button:hover:not(:disabled) {
@@ -120,6 +104,7 @@ button:disabled {
   margin-top: 0.3em;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  font-family: "Boldonse", system-ui, sans-serif; /* Updated font */
 }
 
 .event-card:hover {
@@ -179,6 +164,7 @@ button:disabled {
   position: relative;
   word-wrap: break-word;
   white-space: normal;
+  font-family: "Boldonse", system-ui, sans-serif; /* Updated font */
 }
 
 .close {
@@ -197,6 +183,7 @@ button:disabled {
   padding: 10px;
   margin: 5px 0;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  font-family: "Boldonse", system-ui, sans-serif; /* Updated font */
 }
 
 .event-time {
@@ -210,4 +197,28 @@ button:disabled {
   color: #333;
   font-weight: bold;
   margin-top: 5px;
+}
+
+/* ===== Calendar Week & Month View Headers ===== */
+h2,
+.calendar-week,
+.calendar-month {
+  font-family: "Boldonse", system-ui, sans-serif; /* Updated font for these headings */
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.calendar-week-header,
+.calendar-month-header {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ff5c5c; /* Red color for week/month header */
+}
+
+/* ===== This Week Page Header ===== */
+.this-week-header {
+  font-family: "Boldonse", system-ui, sans-serif; /* Updated font */
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #ff5c5c;
 }
