@@ -1,0 +1,33 @@
+name: "Visual Change Request"
+description: Suggest an update to the visual design (layout, color, spacing, etc.)
+title: "[Visual] Describe the visual update"
+labels: [visual, design]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        💡 **Use this template to suggest design or visual changes.**
+
+  - type: textarea
+    id: what-to-change
+    attributes:
+      label: What would you like to change?
+      description: Describe the visual element you'd like updated (e.g., colors, spacing, layout).
+      placeholder: "I'd like the calendar cells to have a softer border radius..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: why-change
+    attributes:
+      label: Why do you want this change?
+      description: Help us understand the reasoning behind your suggestion.
+      placeholder: "The current design feels too sharp for a friendly user-facing tool."
+    validations:
+      required: false
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Optional: Screenshots or design references
+      description: Upload screenshots or link to design inspiration if available.
