@@ -1,5 +1,5 @@
 name: "Feature Request"
-description: Propose new functionality or improvements
+description: "Propose new functionality or improvements"
 title: "[Feature] Short description of the feature"
 labels: [enhancement]
 body:
@@ -11,8 +11,8 @@ body:
   - type: textarea
     id: summary
     attributes:
-      label: Feature Summary
-      description: Describe the feature you'd like to see added.
+      label: "Feature Summary"
+      description: "Describe the feature you'd like to see added."
       placeholder: "I'd like to add recurring events support..."
     validations:
       required: true
@@ -20,13 +20,13 @@ body:
   - type: textarea
     id: use-case
     attributes:
-      label: Use Case / Motivation
-      description: How would this feature help users? What problem does it solve?
+      label: "Use Case / Motivation"
+      description: "How would this feature help users? What problem does it solve?"
     validations:
       required: false
 
   - type: textarea
     id: implementation-ideas
     attributes:
-      label: Optional: Ideas for implementation
-      description: Any thoughts on how it could be built or integrated?
+      label: "Optional: Ideas for implementation"
+      description: "Any thoughts on how it could be built or integrated?"
