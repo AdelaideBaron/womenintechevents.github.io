@@ -8,13 +8,22 @@ body {
 
 h1,
 nav a {
-  color: #000000;
+  color: #ff5c5c;
 }
 
 nav a {
   margin-right: 1rem;
   text-decoration: none;
   font-weight: bold;
+}
+
+/* ===== Import and Set Font Family ===== */
+@font-face {
+  font-family: "Boldonse";
+  src: url("/path/to/Boldonse-Regular.woff2") format("woff2"),
+    url("/path/to/Boldonse-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* ===== Layout Grids ===== */
@@ -30,11 +39,21 @@ nav a {
 .calendar-month {
   gap: 8px;
   margin-top: 0.5rem;
+  color: #ff5c5c;
+  font-family: "Boldonse", system-ui, sans-serif; /* Apply Boldonse to calendar month */
 }
 
 .weekday-header {
   text-align: center;
   font-weight: bold;
+  color: #ff5c5c;
+  font-family: "Boldonse", system-ui, sans-serif; /* Apply Boldonse to weekday headers */
+}
+
+.calendar-week h2,
+.calendar-month h2 {
+  font-family: "Boldonse", system-ui, sans-serif; /* Apply Boldonse font to 'This Week' header */
+  color: #333;
 }
 
 /* ===== Day Cell ===== */
@@ -47,12 +66,14 @@ nav a {
   font-size: 0.8rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   position: relative;
+  font-family: "Boldonse", system-ui, sans-serif; /* Apply Boldonse to day cells */
 }
 
 .date {
-  font-size: 0.9rem;
-  color: #888;
+  font-size: 1rem;
+  color: #333;
   margin-top: 0.3rem;
+  font-family: "Boldonse", system-ui, sans-serif; /* Apply Boldonse to calendar numbers */
 }
 
 .past {

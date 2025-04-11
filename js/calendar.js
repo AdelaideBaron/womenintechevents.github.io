@@ -147,7 +147,7 @@ export function setupMonthlyView() {
 
 export function setupWeekView() {
   const calendar = document.getElementById("calendar");
-  const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const dayNames = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
   const today = new Date();
 
   const startOfWeek = new Date(today);
