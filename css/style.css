@@ -1,3 +1,9 @@
+/* .belanosima-bold {
+  font-family: "Belanosima", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+} */
+
 /* ===== Base Styles ===== */
 body {
   font-family: sans-serif;
@@ -65,7 +71,7 @@ nav a {
 }
 
 .today {
-  border: 2px solid #cc3366;
+  border: 2px solid #cc3366; /* change to red */
   background-color: #ffe9f0;
 }
 
@@ -75,7 +81,7 @@ nav a {
 }
 
 button {
-  background: #9917c9;
+  background: #9917c9; /* change colour */
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -98,7 +104,7 @@ button:disabled {
 /* ===== Event Cards ===== */
 .event-card,
 .week-view .event-card {
-  background-color: #e7afff;
+  background-color: #ffc5e6 !important; /* Use !important to override other rules */
   border-radius: 8px;
   padding: 0.5em;
   margin-top: 0.3em;
@@ -108,7 +114,7 @@ button:disabled {
 }
 
 .event-card:hover {
-  background-color: #b470d1;
+  background-color: #fba4d6 !important; /* Use !important to override any hover color */
   transform: scale(1.02);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
@@ -121,7 +127,7 @@ button:disabled {
 }
 
 .week-view .event-card:hover {
-  background-color: #b470d1;
+  background-color: #ffc5e6;
   transform: none;
   box-shadow: none;
 }
@@ -178,7 +184,7 @@ button:disabled {
 /* ===== Expanded Event Details ===== */
 .event {
   background-color: #fce1ec;
-  border: 1px solid #cc3366;
+  border: 1px solid #ff5c5c;
   border-radius: 8px;
   padding: 10px;
   margin: 5px 0;
@@ -189,7 +195,7 @@ button:disabled {
 .event-time {
   font-weight: bold;
   font-size: 0.9rem;
-  color: #cc3366;
+  color: #ff5c5c;
 }
 
 .event-title {
