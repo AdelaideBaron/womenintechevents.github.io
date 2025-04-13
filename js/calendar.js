@@ -1,5 +1,7 @@
 import { events } from "./event_log.js";
 
+/* ---------------- Date Utilities ---------------- */
+
 function isPast(date, today) {
   return date < new Date(today.toDateString());
 }
@@ -8,7 +10,32 @@ function isToday(date, today) {
   return date.toDateString() === today.toDateString();
 }
 
-function createDayDiv(date, today, label = "", events = []) {
+/* ---------------- Event Modal Handling ---------------- */
+
+export function showModal(event) {
+  document.getElementById("modal-title").textContent = event.title;
+  document.getElementById("modal-date").textContent = event.date;
+  document.getElementById("modal-time").textContent = event.time;
+  document.getElementById("modal-finish-time").textContent = event.finish_time;
+  document.getElementById("modal-location").textContent = event.location;
+  document.getElementById("modal-country").textContent = event.country;
+  document.getElementById("modal-women-focussed").textContent =
+    event.women_focussed;
+  document.getElementById("modal-cost").textContent = event.cost;
+  document.getElementById("modal-audience").textContent = event.target_audience;
+  document.getElementById("modal-description").textContent = event.description;
+  document.getElementById("modal-type").textContent = event.event_type;
+
+  const modalLink = document.getElementById("modal-link");
+  modalLink.textContent = event.link;
+  modalLink.setAttribute("href", event.link);
+
+  document.getElementById("event-modal").classList.remove("hidden");
+}
+
+/* ---------------- Day Block Creation ---------------- */
+
+function createDayDiv(date, today, label = "", eventsList = []) {
   const dayDiv = document.createElement("div");
   dayDiv.classList.add("day");
 
@@ -18,59 +45,35 @@ function createDayDiv(date, today, label = "", events = []) {
   const monthName = date.toLocaleString("default", { month: "long" });
   const dayNum = date.getDate();
 
-  if (label) {
-    dayDiv.innerHTML = `<strong>${label}</strong><div class="date">${monthName} ${dayNum}</div>`;
-  } else {
-    dayDiv.innerHTML = `<div class="date">${dayNum}</div>`;
-  }
+  dayDiv.innerHTML = label
+    ? `<strong>${label}</strong><div class="date">${monthName} ${dayNum}</div>`
+    : `<div class="date">${dayNum}</div>`;
 
-  const dateStr =
-    date.getFullYear() +
-    "-" +
-    String(date.getMonth() + 1).padStart(2, "0") +
-    "-" +
-    String(date.getDate()).padStart(2, "0");
+  const dateStr = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(
+    2,
+    "0"
+  )}-${String(date.getDate()).padStart(2, "0")}`;
+  const matchingEvents = eventsList.filter((event) => event.date === dateStr);
 
-  const matchingEvents = events.filter((event) => event.date === dateStr);
   matchingEvents.forEach((event) => {
     const eventCard = document.createElement("div");
     eventCard.classList.add("event-card");
     eventCard.innerHTML = `
-    <div class="event-title"> ${event.title}</div>
-    <div class="event-time">🕒 ${event.time} - ${event.finish_time}</div>
-    <div class="event-location">📍 ${event.location}${
+      <div class="event-title">${event.title}</div>
+      <div class="event-time">🕒 ${event.time} - ${event.finish_time}</div>
+      <div class="event-location">📍 ${event.location}${
       event.country ? ", " + event.country : ""
     }</div>
-  `;
+    `;
 
-    eventCard.addEventListener("click", () => {
-      showEventModal(event);
-    });
-
+    eventCard.addEventListener("click", () => showModal(event));
     dayDiv.appendChild(eventCard);
   });
 
   return dayDiv;
 }
 
-function showEventModal(event) {
-  document.getElementById("modal-title").textContent = event.title;
-  document.getElementById("modal-date").textContent = event.date;
-  document.getElementById("modal-time").textContent = event.time;
-  document.getElementById("modal-finish-time").textContent = event.finish_time;
-  document.getElementById("modal-location").textContent = event.location;
-  document.getElementById("modal-country").textContent = event.country;
-  document.getElementById("modal-women-focussed").textContent =
-    event.women_focussed;
-
-  document.getElementById("modal-cost").textContent = event.cost;
-  document.getElementById("modal-audience").textContent = event.audience;
-
-  document.getElementById("modal-description").textContent = event.description;
-  document.getElementById("modal-type").textContent = event.event_type;
-  document.getElementById("event-modal").classList.remove("hidden");
-  document.getElementById("modal-link").textContent = event.link;
-}
+/* ---------------- Monthly View ---------------- */
 
 export function renderMonthlyCalendar(year, month, options) {
   const {
@@ -80,13 +83,14 @@ export function renderMonthlyCalendar(year, month, options) {
     today,
     startYear,
     startMonth,
-    events = [],
+    events: eventList,
   } = options;
 
   monthGrid.innerHTML = "";
   const start = new Date(year, month, 1);
   const monthName = start.toLocaleString("default", { month: "long" });
   const daysInMonth = new Date(year, month + 1, 0).getDate();
+
   title.textContent = `${monthName} ${year}`.toUpperCase();
 
   const monthDiff = (startYear - year) * 12 + (startMonth - month);
@@ -101,7 +105,7 @@ export function renderMonthlyCalendar(year, month, options) {
 
   for (let i = 1; i <= daysInMonth; i++) {
     const thisDate = new Date(year, month, i);
-    const dayDiv = createDayDiv(thisDate, today, "", events);
+    const dayDiv = createDayDiv(thisDate, today, "", eventList);
     monthGrid.appendChild(dayDiv);
   }
 }
@@ -129,7 +133,7 @@ export function setupMonthlyView() {
     });
   }
 
-  function changeMonth(delta) {
+  window.changeMonth = function (delta) {
     currentMonth += delta;
     if (currentMonth > 11) {
       currentMonth = 0;
@@ -139,11 +143,12 @@ export function setupMonthlyView() {
       currentYear -= 1;
     }
     render();
-  }
+  };
 
-  window.changeMonth = changeMonth;
   render();
 }
+
+/* ---------------- Week View ---------------- */
 
 export function setupWeekView() {
   const calendar = document.getElementById("calendar");
@@ -157,57 +162,24 @@ export function setupWeekView() {
   renderWeekView(calendar, startOfWeek, today, dayNames, events);
 }
 
-function renderWeekView(container, startOfWeek, today, dayNames, events = []) {
+function renderWeekView(
+  container,
+  startOfWeek,
+  today,
+  dayNames,
+  eventsList = []
+) {
   container.innerHTML = "";
   for (let i = 0; i < 7; i++) {
     const dayDate = new Date(startOfWeek);
     dayDate.setDate(startOfWeek.getDate() + i);
     const label = dayNames[dayDate.getDay()];
-    const dayDiv = createDayDiv(dayDate, today, label, events);
+    const dayDiv = createDayDiv(dayDate, today, label, eventsList);
     container.appendChild(dayDiv);
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("event-modal");
-  const closeBtn = document.getElementById("close-modal");
-
-  closeBtn.addEventListener("click", () => {
-    modal.classList.add("hidden");
-  });
-
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.add("hidden");
-    }
-  });
-});
-
-export function showModal(event) {
-  // difference between this & show event modal?
-  document.getElementById("modal-title").textContent = event.title;
-  document.getElementById("modal-date").textContent = event.date;
-  document.getElementById("modal-time").textContent = event.time;
-  document.getElementById("modal-finish-time").textContent = event.finish_time;
-  document.getElementById("modal-location").textContent = event.location;
-  document.getElementById("modal-country").textContent = event.country;
-  document.getElementById("modal-women-focussed").textContent =
-    event.women_focussed;
-  document.getElementById("modal-cost").textContent = event.cost;
-  document.getElementById("modal-audience").textContent = event.target_audience;
-  document.getElementById("modal-description").textContent = event.description;
-  document.getElementById("modal-type").textContent = event.event_type;
-
-  const modalLink = document.getElementById("modal-link");
-  modalLink.textContent = event.link;
-  modalLink.setAttribute("href", event.link);
-
-  document.getElementById("event-modal").classList.remove("hidden");
-
-  document.getElementById("close-modal").addEventListener("click", function () {
-    document.getElementById("event-modal").classList.add("hidden");
-  });
-}
+/* ---------------- Load Templates + Modal Close ---------------- */
 
 function loadTemplate() {
   fetch("header.html")
@@ -218,13 +190,23 @@ function loadTemplate() {
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("modal-container").innerHTML = html;
-
       document
         .getElementById("close-modal")
-        .addEventListener("click", function () {
-          document.getElementById("event-modal").classList.add("hidden");
-        });
+        .addEventListener("click", closeEventModal);
     });
 }
 
-document.addEventListener("DOMContentLoaded", loadTemplate);
+function closeEventModal() {
+  document.getElementById("event-modal").classList.add("hidden");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadTemplate();
+
+  const modal = document.getElementById("event-modal");
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeEventModal();
+    }
+  });
+});
