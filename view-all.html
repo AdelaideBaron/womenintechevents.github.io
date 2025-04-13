@@ -92,10 +92,16 @@
 
         fetch("modal.html")
           .then((response) => response.text())
-          .then(
-            (html) =>
-              (document.getElementById("modal-container").innerHTML = html)
-          );
+          .then((html) => {
+            document.getElementById("modal-container").innerHTML = html;
+
+            // ✅ Add the close button event listener here, now that it's loaded
+            document
+              .getElementById("close-modal")
+              .addEventListener("click", function () {
+                document.getElementById("event-modal").classList.add("hidden");
+              });
+          });
 
         renderAllEvents(events);
 

@@ -27,8 +27,9 @@ export function showModal(event) {
   document.getElementById("modal-type").textContent = event.event_type;
 
   const modalLink = document.getElementById("modal-link");
-  modalLink.textContent = event.link;
-  modalLink.setAttribute("href", event.link);
+  const theLink = event.link;
+
+  modalLink.innerHTML = `<a href="${theLink}" target="_blank">🔗 ${theLink}</a>`;
 
   document.getElementById("event-modal").classList.remove("hidden");
 }
@@ -190,9 +191,13 @@ function loadTemplate() {
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("modal-container").innerHTML = html;
+
+      // Attach the close button event listener here after modal HTML is loaded
       document
         .getElementById("close-modal")
-        .addEventListener("click", closeEventModal);
+        .addEventListener("click", function () {
+          document.getElementById("event-modal").classList.add("hidden");
+        });
     });
 }
 
