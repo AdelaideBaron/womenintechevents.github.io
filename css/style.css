@@ -24,6 +24,23 @@ nav a {
   font-weight: bold;
 }
 
+.site-header {
+  position: relative;
+  height: 60px;
+  background-color: #fefef2;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.header-title {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2.2rem;
+  font-weight: bold;
+  font-family: "Boldonse", system-ui, sans-serif;
+  color: #ff5c5c;
+}
+
 /* ===== Layout Grids ===== */
 .calendar-week,
 .weekday-header,
