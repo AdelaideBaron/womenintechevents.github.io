@@ -8,13 +8,30 @@ body {
 
 h1,
 nav a {
-  color: #000000;
+  color: #ff5c5c;
+  font-family: "Boldonse", system-ui, sans-serif;
 }
 
 nav a {
   margin-right: 1rem;
   text-decoration: none;
   font-weight: bold;
+}
+
+.site-header {
+  position: relative;
+  height: 60px;
+  background-color: #fefef2;
+}
+
+.header-title {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2.2rem;
+  font-weight: bold;
+  font-family: "Boldonse", system-ui, sans-serif;
+  color: #ff5c5c;
 }
 
 /* ===== Layout Grids ===== */
@@ -35,6 +52,7 @@ nav a {
 .weekday-header {
   text-align: center;
   font-weight: bold;
+  font-family: "Boldonse", system-ui, sans-serif;
 }
 
 /* ===== Day Cell ===== */
@@ -47,6 +65,7 @@ nav a {
   font-size: 0.8rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   position: relative;
+  font-family: "Boldonse", system-ui, sans-serif;
 }
 
 .date {
@@ -62,7 +81,7 @@ nav a {
 }
 
 .today {
-  border: 2px solid #cc3366;
+  border: 2px solid #ff5c5c; /* change to red */
   background-color: #ffe9f0;
 }
 
@@ -72,37 +91,39 @@ nav a {
 }
 
 button {
-  background: #9917c9;
+  background: #e23d63;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   margin: 0 0.5rem;
   cursor: pointer;
+  font-family: "Boldonse", system-ui, sans-serif;
 }
 
 button:hover:not(:disabled) {
-  background: #540471;
+  background: #c31f45;
 }
 
 button:disabled {
-  background: rgb(162, 111, 181);
+  background: rgb(255, 204, 204);
   cursor: not-allowed;
 }
 
 /* ===== Event Cards ===== */
 .event-card,
 .week-view .event-card {
-  background-color: #e7afff;
+  background-color: #ffc5e6 !important;
   border-radius: 8px;
   padding: 0.5em;
   margin-top: 0.3em;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  font-family: "Boldonse", system-ui, sans-serif;
 }
 
 .event-card:hover {
-  background-color: #b470d1;
+  background-color: #fba4d6 !important;
   transform: scale(1.02);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
@@ -115,7 +136,7 @@ button:disabled {
 }
 
 .week-view .event-card:hover {
-  background-color: #b470d1;
+  background-color: #ffc5e6;
   transform: none;
   box-shadow: none;
 }
@@ -158,6 +179,7 @@ button:disabled {
   position: relative;
   word-wrap: break-word;
   white-space: normal;
+  font-family: "Boldonse", system-ui, sans-serif;
 }
 
 .close {
@@ -171,17 +193,18 @@ button:disabled {
 /* ===== Expanded Event Details ===== */
 .event {
   background-color: #fce1ec;
-  border: 1px solid #cc3366;
+  border: 1px solid #ff5c5c;
   border-radius: 8px;
   padding: 10px;
   margin: 5px 0;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  font-family: "Boldonse", system-ui, sans-serif;
 }
 
 .event-time {
   font-weight: bold;
   font-size: 0.9rem;
-  color: #cc3366;
+  color: #ff5c5c;
 }
 
 .event-title {
@@ -189,4 +212,28 @@ button:disabled {
   color: #333;
   font-weight: bold;
   margin-top: 5px;
+}
+
+/* ===== Calendar Week & Month View Headers ===== */
+h2,
+.calendar-week,
+.calendar-month {
+  font-family: "Boldonse", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.calendar-week-header,
+.calendar-month-header {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ff5c5c;
+}
+
+/* ===== This Week Page Header ===== */
+.this-week-header {
+  font-family: "Boldonse", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #ff5c5c;
 }
