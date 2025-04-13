@@ -28,7 +28,6 @@ export function showModal(event) {
 
   const modalLink = document.getElementById("modal-link");
   const theLink = event.link;
-
   modalLink.innerHTML = `<a href="${theLink}" target="_blank">🔗 ${theLink}</a>`;
 
   document.getElementById("event-modal").classList.remove("hidden");
@@ -192,7 +191,6 @@ function loadTemplate() {
     .then((html) => {
       document.getElementById("modal-container").innerHTML = html;
 
-      // Attach the close button event listener here after modal HTML is loaded
       document
         .getElementById("close-modal")
         .addEventListener("click", function () {
