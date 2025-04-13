@@ -88,6 +88,10 @@ nav a {
 /* ===== Buttons & Controls ===== */
 .controls {
   margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap; /* Ensure buttons stay in a row or wrap on smaller screens */
+  gap: 1rem; /* Maintain spacing between buttons */
+  justify-content: center; /* Center buttons for better alignment */
 }
 
 button {
@@ -96,9 +100,11 @@ button {
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  margin: 0 0.5rem;
   cursor: pointer;
   font-family: "Boldonse", system-ui, sans-serif;
+  font-size: 1rem; /* Ensure button text isn't too small */
+  max-width: 300px; /* Prevent buttons from becoming too wide */
+  width: 100%; /* Make buttons fill their container width */
 }
 
 button:hover:not(:disabled) {
@@ -236,4 +242,99 @@ h2,
   font-weight: 700;
   font-size: 1.8rem;
   color: #ff5c5c;
+}
+
+/* ===== Mobile Adjustments - Scaling Everything Smaller on Phones ===== */
+
+/* Mobile View - General Scaling */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem; /* Reduce heading size */
+  }
+
+  .site-header {
+    height: 50px;
+  }
+
+  .header-title {
+    font-size: 1.8rem; /* Make the header smaller */
+  }
+
+  .controls {
+    gap: 0.5rem; /* Reduced space between buttons */
+  }
+
+  button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem; /* Smaller button text */
+  }
+
+  .event-card {
+    font-size: 0.9rem; /* Smaller event cards */
+    padding: 0.4rem;
+  }
+
+  .day {
+    padding: 0.4rem;
+    min-height: 70px;
+    font-size: 0.7rem; /* Make calendar cells smaller */
+  }
+
+  .date {
+    font-size: 0.7rem;
+  }
+
+  .modal-content {
+    padding: 15px;
+    max-width: 90%;
+  }
+
+  .event {
+    padding: 8px;
+  }
+}
+
+/* Mobile - Very Small Screens (Phones in Portrait) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2rem; /* Further reduce heading size */
+  }
+
+  .controls {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  button {
+    font-size: 0.8rem; /* Even smaller buttons */
+    padding: 0.5rem;
+  }
+
+  .event-card {
+    font-size: 0.8rem; /* Even smaller text in event cards */
+    padding: 0.3rem;
+  }
+
+  .day {
+    padding: 0.3rem;
+    min-height: 60px;
+    font-size: 0.6rem; /* Make calendar cells even smaller */
+  }
+
+  .date {
+    font-size: 0.6rem;
+  }
+
+  .modal-content {
+    padding: 12px;
+    max-width: 95%;
+  }
+
+  .event {
+    padding: 6px;
+  }
 }
