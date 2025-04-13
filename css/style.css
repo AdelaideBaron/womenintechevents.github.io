@@ -237,3 +237,87 @@ h2,
   font-size: 1.8rem;
   color: #ff5c5c;
 }
+
+/* ===== Mobile Styles ===== */
+@media (max-width: 768px) {
+  /* Adjust header size and margins for small screens */
+  h1 {
+    font-size: 1.8rem;
+    margin-top: 1rem;
+    padding: 0 1rem; /* Add padding to prevent overlapping */
+  }
+
+  /* Make sure the buttons are spaced out and stack vertically */
+  .controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  button {
+    width: 100%;
+    max-width: 300px; /* Limit button width */
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  /* Adjust the site header (if it's too large) */
+  .site-header {
+    height: auto;
+    padding: 0 10px;
+  }
+
+  .header-title {
+    font-size: 1.5rem;
+    position: static; /* Make the title align properly */
+    text-align: center;
+    margin-top: 1rem;
+    right: auto; /* Prevent it from overlapping */
+  }
+
+  /* Ensure the event cards don't get too squished on smaller screens */
+  .event-card {
+    font-size: 0.9rem;
+    padding: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  /* Make sure the modal is responsive and doesn't overflow */
+  .modal-content {
+    width: 90%; /* Ensure the modal fits on smaller screens */
+    max-width: 400px;
+  }
+}
+
+/* ===== Very Small Screens (Phones in Portrait Mode) ===== */
+@media (max-width: 480px) {
+  /* Further adjust h1 and buttons for very small screens */
+  h1 {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .controls {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+  }
+
+  /* Make event cards stack better */
+  .event-card {
+    font-size: 0.85rem;
+    padding: 0.8rem;
+  }
+
+  /* Adjust modal content for very small screens */
+  .modal-content {
+    width: 90%;
+    max-width: 350px;
+  }
+}
