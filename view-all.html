@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Women in Tech - All Events</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    ></script>
   </head>
   <body class="view-all">
     <div id="header"></div>
@@ -19,10 +26,9 @@
     <!-- List View -->
     <div id="event-list"></div>
 
-    <!-- Map View (blank for now) -->
-    <div id="map-view" style="display: none">
-      <p>Map View is coming soon...</p>
-      <!-- Placeholder for future map -->
+    <!-- Map View (hidden initially) -->
+    <div id="map-view" style="display: none;">
+      <div id="map" style="height: 500px;"></div>
     </div>
 
     <div id="modal-container"></div>
@@ -30,29 +36,23 @@
     <script type="module">
       import { events } from "./js/event_log.js";
       import { showModal } from "./js/calendar.js";
+      import { initMap } from "./js/map.js";
 
       // Function to check if the event's date is in the future
       function isFutureEvent(eventDate) {
         const today = new Date();
         const eventDateObj = new Date(eventDate);
-
-        // Remove time components (set to midnight) for accurate comparison
         today.setHours(0, 0, 0, 0);
         eventDateObj.setHours(0, 0, 0, 0);
-
-        return eventDateObj >= today; // Returns true if the event is tomorrow or later
+        return eventDateObj >= today;
       }
 
       function renderAllEvents(events) {
         const list = document.getElementById("event-list");
         list.innerHTML = "";
 
-        // Filter events to only include future events
-        const futureEvents = events.filter((event) =>
-          isFutureEvent(event.date)
-        );
+        const futureEvents = events.filter((event) => isFutureEvent(event.date));
 
-        // Sort events by date
         futureEvents
           .sort((a, b) => new Date(a.date) - new Date(b.date))
           .forEach((event) => {
@@ -78,11 +78,13 @@
       function switchToMapView() {
         document.getElementById("event-list").style.display = "none";
         document.getElementById("map-view").style.display = "block";
+        initMap(events); // Initialize the map with events
       }
 
       function switchToListView() {
         document.getElementById("event-list").style.display = "block";
         document.getElementById("map-view").style.display = "none";
+        renderAllEvents(events); // Render all events in list view
       }
 
       document.addEventListener("DOMContentLoaded", () => {
@@ -94,7 +96,6 @@
           .then((response) => response.text())
           .then((html) => {
             document.getElementById("modal-container").innerHTML = html;
-
             document
               .getElementById("close-modal")
               .addEventListener("click", function () {
@@ -102,9 +103,8 @@
               });
           });
 
-        renderAllEvents(events);
+        renderAllEvents(events); // Initial rendering of events in list view
 
-        // Button Click Handlers for Switching Views
         document
           .getElementById("list-view-btn")
           .addEventListener("click", switchToListView);
