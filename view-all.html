@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Women in Tech - All Events</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+></script>
+
   </head>
   <body class="view-all">
     <div id="header"></div>
@@ -19,11 +27,8 @@
     <!-- List View -->
     <div id="event-list"></div>
 
-    <!-- Map View (blank for now) -->
-    <div id="map-view" style="display: none">
-      <p>Map View is coming soon...</p>
-      <!-- Placeholder for future map -->
-    </div>
+    <div id="map" style="height: 500px;"></div>
+
 
     <div id="modal-container"></div>
 
