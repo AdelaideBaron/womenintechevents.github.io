@@ -79,4 +79,10 @@ I've missed many events or opportunities just because I didn’t check the right
 - I'm **Adelaide**, and I am a **backend software engineer**!
 - Those of you who know me, know that I **hate frontend development**, so that’s why this page is nice and basic! 😅
 
+
+## Local Development 
+I recommend the following extensions: 
+- Live Server by Ritwick Dey
+- Prettier - Code formatter by Prettier  
+
 ***Made by [@codeaddi](https://www.instagram.com/codeaddi/)***
