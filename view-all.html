@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Women in Tech - All Events</title>
-    <link rel="stylesheet" href="./css/style.css"/>
+    <link rel="stylesheet" href="./css/style.css" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -38,6 +38,7 @@
       import { showModal } from "./js/calendar.js";
       import { initMap } from "./js/map.js";
 
+      // Function to check if the event's date is in the future
       function isFutureEvent(eventDate) {
         const today = new Date();
         const eventDateObj = new Date(eventDate);
@@ -77,12 +78,13 @@
       function switchToMapView() {
         document.getElementById("event-list").style.display = "none";
         document.getElementById("map-view").style.display = "block";
-        initMap();
+        initMap(events); // Initialize the map with events
       }
 
       function switchToListView() {
         document.getElementById("event-list").style.display = "block";
         document.getElementById("map-view").style.display = "none";
+        renderAllEvents(events); // Render all events in list view
       }
 
       document.addEventListener("DOMContentLoaded", () => {
@@ -101,7 +103,7 @@
               });
           });
 
-        renderAllEvents(events);
+        renderAllEvents(events); // Initial rendering of events in list view
 
         document
           .getElementById("list-view-btn")
