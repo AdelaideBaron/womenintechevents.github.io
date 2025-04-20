@@ -376,3 +376,31 @@ h2,
   margin-top: 2rem;
   text-align: center;
 }
+
+/* ===== Nav Styling Enhancements ===== */
+/* ===== Nav Styling Enhancements ===== */
+nav {
+  display: flex;
+  justify-content: flex-start; /* align nav links to the left */
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem 0;
+  margin-top: 60px; /* push nav down under the header */
+}
+
+nav a {
+  margin-right: 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  padding-bottom: 4px;
+  border-bottom: 3px solid transparent;
+  font-family: "Boldonse", system-ui, sans-serif;
+  color: #ff5c5c;
+}
+
+nav a.active {
+  border-bottom: 3px solid #ff5c5c;
+  font-weight: bold;
+  color: #ff5c5c;
+}
+
+
