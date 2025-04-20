@@ -338,3 +338,41 @@ h2,
     padding: 6px;
   }
 }
+
+/* ===== About Page Styles ===== */
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.about-section {
+  margin-bottom: 2rem;
+}
+
+.about-section h2 {
+  font-family: "Boldonse", system-ui, sans-serif;
+  color: #ff5c5c;
+  margin-bottom: 0.5rem;
+}
+
+.about-section p {
+  font-family: "Boldonse", system-ui, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.about-section a {
+  color: #ff5c5c;
+  text-decoration: none;
+  font-family: "Boldonse", system-ui, sans-serif;
+}
+
+.about-section a:hover {
+  text-decoration: underline;
+}
+
+.support-widget {
+  margin-top: 2rem;
+  text-align: center;
+}
