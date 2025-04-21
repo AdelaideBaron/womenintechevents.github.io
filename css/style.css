@@ -402,11 +402,10 @@ nav {
   margin-top: 60px; 
 }
 
-/* Regular Link State */
 nav a {
   display: inline-block;
-  line-height: 1.6;         /* Slightly tighter line height */
-  padding: 0.2rem 0.5rem;   /* Less padding for a snugger fit */
+  line-height: 1.6;         
+  padding: 0.2rem 0.5rem;   
   margin-right: 1.2rem;
   text-decoration: none;
   font-weight: bold;
@@ -415,7 +414,6 @@ nav a {
   border-bottom: 2px solid transparent;
 }
 
-/* Active Link State */
 nav a.active {
   background-color: #ff5c5c;
   color: #fefef2;
