@@ -13,6 +13,7 @@
   </head>
   <body class="view-all">
     <div id="header"></div>
+    <div id="events-nav"></div>
     <h1>ALL UPCOMING EVENTS</h1>
 
     <div style="margin: 20px 0">
@@ -109,7 +110,7 @@
             document.getElementById("header").innerHTML = html;
 
             const currentPage =
-              window.location.pathname.split("/").pop() || "view-all.html";
+              window.location.pathname.split("/").pop() || "index.html";
             const navLinks = document.querySelectorAll("nav a");
 
             navLinks.forEach((link) => {
@@ -118,6 +119,24 @@
               }
             });
           });
+
+        // Load the secondary events nav if it exists
+        fetch("events-nav.html")
+          .then((response) => response.text())
+          .then((html) => {
+            document.getElementById("events-nav").innerHTML = html;
+
+            const currentPage =
+              window.location.pathname.split("/").pop() || "index.html";
+            const navLinks = document.querySelectorAll(".events-nav a");
+
+            navLinks.forEach((link) => {
+              if (link.getAttribute("href") === currentPage) {
+                link.classList.add("active");
+              }
+            });
+          });
+
         fetch("modal.html")
           .then((response) => response.text())
           .then((html) => {
