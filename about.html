@@ -14,19 +14,25 @@
       <section class="about-section">
         <h2>🚀 Plans for This Page</h2>
         <p>
-          Right now, this site is hosted through <strong>GitHub Pages</strong> for ease.
-          I'm eager to collaborate with more experienced frontend developers to improve,
-          expand and polish this site into something beautiful and useful for everyone.
+          Right now, this site is hosted through
+          <strong>GitHub Pages</strong> for ease. I'm eager to collaborate with
+          more experienced frontend developers to improve, expand and polish
+          this site into something beautiful and useful for everyone.
         </p>
       </section>
 
       <section class="about-section">
         <h2>📣 How to Add an Event</h2>
         <p>
-          Got an event to share? <strong>Add a new issue</strong> on our 
-          <a href="https://github.com/AdelaideBaron/womenintechevents.github.io/issues" target="_blank">
-          GitHub repository</a> and select <strong>‘New Event Submission’</strong>. 
-          It’s quick and open to anyone!
+          Got an event to share? <strong>Add a new issue</strong> on our
+          <a
+            href="https://github.com/AdelaideBaron/womenintechevents.github.io/issues"
+            target="_blank"
+          >
+            GitHub repository</a
+          >
+          and select <strong>‘New Event Submission’</strong>. It’s quick and
+          open to anyone!
         </p>
       </section>
 
@@ -35,7 +41,8 @@
         <p>
           I'm a <strong>Lead Instructor in Software Engineering</strong>,
           specialising in <strong>Python, SQL, Java</strong>, and
-          <strong>AI/ML</strong>. I've been teaching for over 3 years, teaching almost 2000 women to code.
+          <strong>AI/ML</strong>. I've been teaching for over 3 years, teaching
+          almost 2000 women to code.
         </p>
         <p>
           I started with a degree in Mathematics — during my final project, I
@@ -45,25 +52,28 @@
         </p>
         <p>
           You can also find me on
-          <a href="https://www.instagram.com/codeaddi/" target="_blank">Instagram @codeaddi</a>.
+          <a href="https://www.instagram.com/codeaddi/" target="_blank"
+            >Instagram @codeaddi</a
+          >.
         </p>
       </section>
 
       <section class="about-section">
         <h2>🌸 Why I Started This Page</h2>
         <p>
-          The <strong>Women in Tech</strong> community has been pivotal for my career. 
-          Every time I catch up with friends in tech, someone mentions an event or 
-          opportunity they found through a niche page or word of mouth — and I’ll 
-          be gutted that I missed it!
+          The <strong>Women in Tech</strong> community has been pivotal for my
+          career. Every time I catch up with friends in tech, someone mentions
+          an event or opportunity they found through a niche page or word of
+          mouth — and I’ll be gutted that I missed it!
         </p>
         <p>
-          I’m hoping this page can help us <strong>collate all the incredible 
-          events we come across and make them visible to everyone</strong>. 
+          I’m hoping this page can help us
+          <strong
+            >collate all the incredible events we come across and make them
+            visible to everyone</strong
+          >.
         </p>
       </section>
-
-  
 
       <div class="support-widget">
         <script
@@ -84,7 +94,19 @@
     <script type="module">
       fetch("header.html")
         .then((response) => response.text())
-        .then((html) => (document.getElementById("header").innerHTML = html));
+        .then((html) => {
+          document.getElementById("header").innerHTML = html;
+
+          const currentPage =
+            window.location.pathname.split("/").pop() || "about.html";
+          const navLinks = document.querySelectorAll("nav a");
+
+          navLinks.forEach((link) => {
+            if (link.getAttribute("href") === currentPage) {
+              link.classList.add("active");
+            }
+          });
+        });
     </script>
   </body>
 </html>
