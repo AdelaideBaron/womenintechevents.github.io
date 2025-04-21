@@ -91,7 +91,7 @@ nav a {
   display: flex;
   flex-wrap: wrap; /* Ensure buttons stay in a row or wrap on smaller screens */
   gap: 1rem; /* Maintain spacing between buttons */
-  justify-content: center; /* Center buttons for better alignment */
+  justify-content: flex-start; /* Center buttons for better alignment */
 }
 
 button {
@@ -384,7 +384,7 @@ h2,
   padding: 1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   border-bottom: 1px solid #ddd;
 }
 
@@ -399,7 +399,7 @@ h2,
 /* Main Nav */
 nav.main-nav {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1.2rem;
   background-color: #fefef2;
   border-bottom: 1px solid #ddd;
@@ -433,4 +433,35 @@ nav.main-nav a.active {
     flex-wrap: wrap;
     gap: 0.8rem;
   }
+}
+
+/* Events Nav (Secondary nav below the main nav) */
+#events-nav {
+  margin-top: 0.2rem; /* More subtle vertical space */
+}
+
+.events-nav {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  background-color: #fefef2;
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem 0;
+}
+
+.events-nav a {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "Boldonse", system-ui, sans-serif;
+  color: #ff5c5c;
+  border-bottom: 2px solid transparent;
+}
+
+.events-nav a.active {
+  background-color: #ff5c5c;
+  color: #fefef2;
+  border-radius: 6px;
+  border-bottom: none;
 }
