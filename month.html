@@ -8,6 +8,7 @@
   </head>
   <body>
     <div id="header"></div>
+    <div id="events-nav"></div>
     <!-- Navigation imported here -->
     <h1 id="month-title">Loading...</h1>
 
@@ -55,8 +56,25 @@
           document.getElementById("header").innerHTML = html;
 
           const currentPage =
-            window.location.pathname.split("/").pop() || "month.html";
+            window.location.pathname.split("/").pop() || "index.html";
           const navLinks = document.querySelectorAll("nav a");
+
+          navLinks.forEach((link) => {
+            if (link.getAttribute("href") === currentPage) {
+              link.classList.add("active");
+            }
+          });
+        });
+
+      // Load the secondary events nav if it exists
+      fetch("events-nav.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("events-nav").innerHTML = html;
+
+          const currentPage =
+            window.location.pathname.split("/").pop() || "index.html";
+          const navLinks = document.querySelectorAll(".events-nav a");
 
           navLinks.forEach((link) => {
             if (link.getAttribute("href") === currentPage) {
