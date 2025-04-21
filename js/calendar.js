@@ -184,7 +184,19 @@ function renderWeekView(
 function loadTemplate() {
   fetch("header.html")
     .then((response) => response.text())
-    .then((html) => (document.getElementById("header").innerHTML = html));
+    .then((html) => {
+      document.getElementById("header").innerHTML = html;
+
+      const currentPage =
+        window.location.pathname.split("/").pop() || "index.html";
+      const navLinks = document.querySelectorAll("nav a");
+
+      navLinks.forEach((link) => {
+        if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active");
+        }
+      });
+    });
 
   fetch("modal.html")
     .then((response) => response.text())

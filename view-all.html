@@ -9,22 +9,25 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     />
-    <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    ></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   </head>
   <body class="view-all">
     <div id="header"></div>
     <h1>ALL UPCOMING EVENTS</h1>
 
-    <div style="margin: 20px 0;">
-      <script data-name="BMC-Widget" 
-      data-cfasync="false"
-       src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" 
-       data-id="codeaddi1" 
-       data-description="Support me on Buy me a coffee!" 
-       data-message="Thanks for your support! You can now help me continue making content through buy me a coffee ☕ " 
-       data-color="#FF5F5F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+    <div style="margin: 20px 0">
+      <script
+        data-name="BMC-Widget"
+        data-cfasync="false"
+        src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+        data-id="codeaddi1"
+        data-description="Support me on Buy me a coffee!"
+        data-message="Thanks for your support! You can now help me continue making content through buy me a coffee ☕ "
+        data-color="#FF5F5F"
+        data-position="Right"
+        data-x_margin="18"
+        data-y_margin="18"
+      ></script>
     </div>
 
     <!-- Toggle Buttons -->
@@ -37,8 +40,8 @@
     <div id="event-list"></div>
 
     <!-- Map View (hidden initially) -->
-    <div id="map-view" style="display: none;">
-      <div id="map" style="height: 500px;"></div>
+    <div id="map-view" style="display: none">
+      <div id="map" style="height: 500px"></div>
     </div>
 
     <div id="modal-container"></div>
@@ -61,7 +64,9 @@
         const list = document.getElementById("event-list");
         list.innerHTML = "";
 
-        const futureEvents = events.filter((event) => isFutureEvent(event.date));
+        const futureEvents = events.filter((event) =>
+          isFutureEvent(event.date)
+        );
 
         futureEvents
           .sort((a, b) => new Date(a.date) - new Date(b.date))
@@ -88,7 +93,7 @@
       function switchToMapView() {
         document.getElementById("event-list").style.display = "none";
         document.getElementById("map-view").style.display = "block";
-        initMap(events); // Initialize the map with events
+        initMap(events); // Initialize the map witßh events
       }
 
       function switchToListView() {
@@ -100,8 +105,19 @@
       document.addEventListener("DOMContentLoaded", () => {
         fetch("header.html")
           .then((response) => response.text())
-          .then((html) => (document.getElementById("header").innerHTML = html));
+          .then((html) => {
+            document.getElementById("header").innerHTML = html;
 
+            const currentPage =
+              window.location.pathname.split("/").pop() || "view-all.html";
+            const navLinks = document.querySelectorAll("nav a");
+
+            navLinks.forEach((link) => {
+              if (link.getAttribute("href") === currentPage) {
+                link.classList.add("active");
+              }
+            });
+          });
         fetch("modal.html")
           .then((response) => response.text())
           .then((html) => {

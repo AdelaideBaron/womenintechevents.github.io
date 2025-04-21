@@ -10,14 +10,19 @@
     <div id="header"></div>
     <h1>UPCOMING EVENTS</h1>
 
-    <div style="margin: 20px 0;">
-      <script data-name="BMC-Widget" 
-      data-cfasync="false"
-       src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" 
-       data-id="codeaddi1" 
-       data-description="Support me on Buy me a coffee!" 
-       data-message="Thanks for your support! You can now help me continue making content through buy me a coffee ☕ " 
-       data-color="#FF5F5F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+    <div style="margin: 20px 0">
+      <script
+        data-name="BMC-Widget"
+        data-cfasync="false"
+        src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+        data-id="codeaddi1"
+        data-description="Support me on Buy me a coffee!"
+        data-message="Thanks for your support! You can now help me continue making content through buy me a coffee ☕ "
+        data-color="#FF5F5F"
+        data-position="Right"
+        data-x_margin="18"
+        data-y_margin="18"
+      ></script>
     </div>
     <div class="calendar-week" id="calendar"></div>
 
@@ -29,7 +34,19 @@
 
       fetch("header.html")
         .then((response) => response.text())
-        .then((html) => (document.getElementById("header").innerHTML = html));
+        .then((html) => {
+          document.getElementById("header").innerHTML = html;
+
+          const currentPage =
+            window.location.pathname.split("/").pop() || "index.html";
+          const navLinks = document.querySelectorAll("nav a");
+
+          navLinks.forEach((link) => {
+            if (link.getAttribute("href") === currentPage) {
+              link.classList.add("active");
+            }
+          });
+        });
 
       fetch("modal.html")
         .then((response) => response.text())
