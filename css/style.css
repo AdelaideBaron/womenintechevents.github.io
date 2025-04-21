@@ -402,21 +402,24 @@ nav {
   margin-top: 60px; 
 }
 
+/* Regular Link State */
 nav a {
-  margin-right: 1.5rem;
+  display: inline-block;
+  line-height: 1.6;         /* Slightly tighter line height */
+  padding: 0.2rem 0.5rem;   /* Less padding for a snugger fit */
+  margin-right: 1.2rem;
   text-decoration: none;
   font-weight: bold;
-  padding-bottom: 4px;
-  border-bottom: 3px solid transparent;
   font-family: "Boldonse", system-ui, sans-serif;
   color: #ff5c5c;
+  border-bottom: 2px solid transparent;
 }
 
+/* Active Link State */
 nav a.active {
   background-color: #ff5c5c;
   color: #fefef2;
   border-radius: 6px;
-  padding: 0.3rem 0.6rem;
   border-bottom: none;
 }
 
