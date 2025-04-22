@@ -5,27 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Learning</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/courses.css" />
   </head>
   <body>
     <div id="header"></div>
     <h1>LEARNING</h1>
+    <div id="courses"></div>
 
-      <div class="support-widget">
-        <script
-          data-name="BMC-Widget"
-          data-cfasync="false"
-          src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-          data-id="codeaddi1"
-          data-description="Support me on Buy me a coffee!"
-          data-message="Thanks for your support! You can now help me continue making content through buy me a coffee ☕ "
-          data-color="#FF5F5F"
-          data-position="Right"
-          data-x_margin="18"
-          data-y_margin="18"
-        ></script>
+    <div class="support-widget">
+      <script
+        data-name="BMC-Widget"
+        data-cfasync="false"
+        src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+        data-id="codeaddi1"
+        data-description="Support me on Buy me a coffee!"
+        data-message="Thanks for your support! You can now help me continue making content through buy me a coffee ☕ "
+        data-color="#FF5F5F"
+        data-position="Right"
+        data-x_margin="18"
+        data-y_margin="18"
+      ></script>
     </div>
 
     <script type="module">
+      // load the header
       fetch("header.html")
         .then((response) => response.text())
         .then((html) => {
@@ -39,6 +42,42 @@
             if (link.getAttribute("href") === currentPage) {
               link.classList.add("active");
             }
+          });
+        });
+
+      //load courses
+      fetch("courses.json")
+        .then((response) => response.json())
+        .then((courses) => {
+          const coursesContainer = document.getElementById("courses");
+
+          courses.forEach((course) => {
+            const card = document.createElement("div");
+            card.className = "course-card";
+            card.innerHTML = `
+            <h2>${course.title}</h2>
+            <p><strong>Available:</strong> ${course.available_from} to ${
+              course.available_to
+            }</p>
+            <p><strong>Duration:</strong> ${course.duration}</p>
+            ${
+              course.timeline
+                ? `<p><strong>Timeline:</strong> ${course.timeline}</p>`
+                : ""
+            }
+            <p><strong>Delivery:</strong> ${course.delivery_method}</p>
+            <p><strong>Cost:</strong> ${course.cost}</p>
+            <p><strong>Provider:</strong> ${course.provider}</p>
+            ${
+              course.location
+                ? `<p><strong>Location:</strong> ${course.location}</p>`
+                : ""
+            }
+            <p><strong>Audience:</strong> ${course.target_audience}</p>
+            <p><strong>Women Focused:</strong> ${course.women_focused}</p>
+            <a href="${course.link}" target="_blank">More Info</a>
+          `;
+            coursesContainer.appendChild(card);
           });
         });
     </script>
