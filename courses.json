@@ -11,7 +11,9 @@
     "coordinates": { "longitude": "", "latitude": "" },
     "link": "https://pll.harvard.edu/course/cs50s-introduction-programming-python",
     "target_audience": "Beginner",
-    "women_focused": "Open to all"
+    "women_focused": "Open to all",
+    "tags": ["#python", "#cs50", "#programming"]
+
   },
   {
     "title": "Introduction to Programming with Python",
@@ -25,6 +27,8 @@
     "coordinates": { "longitude": "", "latitude": "" },
     "link": "https://pll.harvard.edu/course/cs50s-introduction-programming-python",
     "target_audience": "Beginner",
-    "women_focused": "Open to all"
+    "women_focused": "Open to all",
+    "tags": ["#python", "#cs50", "#programming"]
+
   }
 ]
