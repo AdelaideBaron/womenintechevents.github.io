@@ -28,7 +28,6 @@
     </div>
 
     <script type="module">
-      // load the header
       fetch("header.html")
         .then((response) => response.text())
         .then((html) => {
@@ -54,31 +53,49 @@
           courses.forEach((course) => {
             const card = document.createElement("div");
             card.className = "course-card";
+
+            // Visible section
             card.innerHTML = `
         <h2>${course.title}</h2>
-        <p><strong>Starts:</strong> ${course.starts}</p>
         <p><strong>Duration:</strong> ${course.duration}</p>
-        ${
-          course.timeline
-            ? `<p><strong>Timeline:</strong> ${course.timeline}</p>`
-            : ""
-        }
-        <p><strong>Delivery:</strong> ${course.delivery_method}</p>
-        <p><strong>Pace:</strong> ${course.pace}</p>
         <p><strong>Cost:</strong> ${course.cost}</p>
-        <p><strong>Provider:</strong> ${course.provider}</p>
-        ${
-          course.coordinates.longitude && course.coordinates.latitude
-            ? `<p><strong>Coordinates:</strong> (${course.coordinates.latitude}, ${course.coordinates.longitude})</p>`
-            : ""
-        }
+        <p><strong>Delivery:</strong> ${course.delivery_method}</p>
         <p><strong>Audience:</strong> ${course.target_audience}</p>
-        <p><strong>Women Focused:</strong> ${course.women_focused}</p>
-        <a href="${
-          course.link
-        }" target="_blank"><strong>🔗 Link to provider</strong></a>
+
+        <div class="more-details" style="display: none;">
+          <p><strong>Starts:</strong> ${course.starts}</p>
+          ${
+            course.timeline
+              ? `<p><strong>Timeline:</strong> ${course.timeline}</p>`
+              : ""
+          }
+          <p><strong>Pace:</strong> ${course.pace}</p>
+          <p><strong>Provider:</strong> ${course.provider}</p>
+          ${
+            course.coordinates.longitude && course.coordinates.latitude
+              ? `<p><strong>Coordinates:</strong> (${course.coordinates.latitude}, ${course.coordinates.longitude})</p>`
+              : ""
+          }
+          <p><strong>Women Focused:</strong> ${course.women_focused}</p>
+          <a href="${
+            course.link
+          }" target="_blank"><strong>🔗 Link to provider</strong></a>
+        </div>
+
+        <button class="toggle-details">Show More</button>
       `;
+
             coursesContainer.appendChild(card);
+
+            // Toggle functionality
+            const button = card.querySelector(".toggle-details");
+            const moreDetails = card.querySelector(".more-details");
+
+            button.addEventListener("click", () => {
+              const isVisible = moreDetails.style.display === "block";
+              moreDetails.style.display = isVisible ? "none" : "block";
+              button.textContent = isVisible ? "Show More" : "Hide Details";
+            });
           });
         });
     </script>
