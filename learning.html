@@ -45,7 +45,7 @@
           });
         });
 
-      //load courses
+      // load courses
       fetch("courses.json")
         .then((response) => response.json())
         .then((courses) => {
@@ -55,30 +55,29 @@
             const card = document.createElement("div");
             card.className = "course-card";
             card.innerHTML = `
-            <h2>${course.title}</h2>
-            <p><strong>Available:</strong> ${course.available_from} to ${
-              course.available_to
-            }</p>
-            <p><strong>Duration:</strong> ${course.duration}</p>
-            ${
-              course.timeline
-                ? `<p><strong>Timeline:</strong> ${course.timeline}</p>`
-                : ""
-            }
-            <p><strong>Delivery:</strong> ${course.delivery_method}</p>
-            <p><strong>Cost:</strong> ${course.cost}</p>
-            <p><strong>Provider:</strong> ${course.provider}</p>
-            ${
-              course.location
-                ? `<p><strong>Location:</strong> ${course.location}</p>`
-                : ""
-            }
-            <p><strong>Audience:</strong> ${course.target_audience}</p>
-            <p><strong>Women Focused:</strong> ${course.women_focused}</p>
-            <a href="${
-              course.link
-            }" target="_blank"><strong>🔗Link to provider<strong></a>
-          `;
+        <h2>${course.title}</h2>
+        <p><strong>Starts:</strong> ${course.starts}</p>
+        <p><strong>Duration:</strong> ${course.duration}</p>
+        ${
+          course.timeline
+            ? `<p><strong>Timeline:</strong> ${course.timeline}</p>`
+            : ""
+        }
+        <p><strong>Delivery:</strong> ${course.delivery_method}</p>
+        <p><strong>Pace:</strong> ${course.pace}</p>
+        <p><strong>Cost:</strong> ${course.cost}</p>
+        <p><strong>Provider:</strong> ${course.provider}</p>
+        ${
+          course.coordinates.longitude && course.coordinates.latitude
+            ? `<p><strong>Coordinates:</strong> (${course.coordinates.latitude}, ${course.coordinates.longitude})</p>`
+            : ""
+        }
+        <p><strong>Audience:</strong> ${course.target_audience}</p>
+        <p><strong>Women Focused:</strong> ${course.women_focused}</p>
+        <a href="${
+          course.link
+        }" target="_blank"><strong>🔗 Link to provider</strong></a>
+      `;
             coursesContainer.appendChild(card);
           });
         });
