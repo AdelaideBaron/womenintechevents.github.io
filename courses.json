@@ -106,5 +106,20 @@
     "target_audience": "Beginner",
     "women_focused": "Open to all",
     "tags": ["#python", "#cs50", "#javascript", "#webdevelopment", "frontend"]
+  },
+  {
+    "title": "Introduction to Javascript",
+    "duration": "7 weeks",
+    "starts": "01-04-2025",
+    "timeline": "6-12 hours per week, but can be done at your own pace. Recorded lessons & projects",
+    "delivery_method": "Online",
+    "pace": "Self-paced",
+    "cost": "Free",
+    "provider": "CS50 (Harvard)",
+    "coordinates": { "longitude": "", "latitude": "" },
+    "link": "https://pll.harvard.edu/course/cs50s-introduction-databases-sql",
+    "target_audience": "Beginner",
+    "women_focused": "Open to all",
+    "tags": ["#python", "#cs50", "#javascript", "#webdevelopment", "frontend"]
   }
 ]

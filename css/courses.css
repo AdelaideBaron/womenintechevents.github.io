@@ -75,3 +75,22 @@
   display: inline-block;
   font-size: 0.85em;
 }
+
+#filters {
+  margin-bottom: 1em;
+}
+
+#tagFilter {
+  padding: 0.5em;
+  border-radius: 4px;
+}
+
+.tag {
+  background: #f0f0f0;
+  color: #444;
+  padding: 4px 8px;
+  margin: 2px;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 0.85em;
+}
