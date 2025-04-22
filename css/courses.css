@@ -1,4 +1,10 @@
 /* Course Cards */
+#courses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 16px 0;
+}
 
 .course-card {
   background: #fce1ec;
@@ -6,6 +12,8 @@
   padding: 16px;
   margin: 16px 0;
   border-radius: 8px;
+  flex: 1 1 calc(50% - 16px); /* default: 2 per row */
+  box-sizing: border-box;
   transition: all 0.3s ease;
 }
 
@@ -27,4 +35,11 @@
 
 .course-card a:hover {
   text-decoration: underline;
+}
+
+/* 📱 Mobile responsive: stack cards in a single column */
+@media (max-width: 768px) {
+  .course-card {
+    flex: 1 1 100%;
+  }
 }
