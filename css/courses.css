@@ -1,7 +1,7 @@
 /* Course Cards */
 
 .course-card {
-  background: #f9f9f9;
+  background: #fce1ec;
   border: 1px solid #ddd;
   padding: 16px;
   margin: 16px 0;
@@ -10,7 +10,7 @@
 }
 
 .course-card:hover {
-  background: #fff;
+  background: #fba4d6;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
