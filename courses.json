@@ -12,23 +12,99 @@
     "link": "https://pll.harvard.edu/course/cs50s-introduction-programming-python",
     "target_audience": "Beginner",
     "women_focused": "Open to all",
-    "tags": ["#python", "#cs50", "#programming"]
+    "tags": ["#python", "#cs50"]
 
   },
   {
-    "title": "Introduction to Programming with Python",
-    "duration": "6 weeks",
+    "title": "Introduction to Artificial Intelligence with Python",
+    "duration": "7 weeks",
     "starts": "Available immediately",
-    "timeline": "Week 1: HTML/CSS, Week 2-3: JS Basics, Week 4-6: Projects",
+    "timeline": "10-30 hours per week, but can be done at your own pace. Recorded lessons & projects",
     "delivery_method": "Online",
     "pace": "Self-paced",
     "cost": "Free",
     "provider": "CS50 (Harvard)",
     "coordinates": { "longitude": "", "latitude": "" },
-    "link": "https://pll.harvard.edu/course/cs50s-introduction-programming-python",
+    "link": "https://pll.harvard.edu/course/cs50s-introduction-artificial-intelligence-python",
+    "target_audience": "Intermediate",
+    "women_focused": "Open to all",
+    "tags": ["#python", "#cs50", "#ai"]
+
+  },
+  {
+    "title": "Introduction to Cybersecurity",
+    "duration": "5 weeks",
+    "starts": "Available immediately",
+    "timeline": "2-6 hours per week, but can be done at your own pace. Recorded lessons & projects",
+    "delivery_method": "Online",
+    "pace": "Self-paced",
+    "cost": "Free",
+    "provider": "CS50 (Harvard)",
+    "coordinates": { "longitude": "", "latitude": "" },
+    "link": "https://pll.harvard.edu/course/cs50s-introduction-cybersecurity",
     "target_audience": "Beginner",
     "women_focused": "Open to all",
-    "tags": ["#python", "#cs50", "#programming"]
+    "tags": ["#python", "#cs50", "#cybersecurity", "#security"]
 
+  },
+  {
+    "title": "Introduction to Data Science with Python",
+    "duration": "8 weeks",
+    "starts": "Available immediately",
+    "timeline": "3-4 hours per week, but can be done at your own pace. Recorded lessons & projects",
+    "delivery_method": "Online",
+    "pace": "Self-paced",
+    "cost": "Free",
+    "provider": "CS50 (Harvard)",
+    "coordinates": { "longitude": "", "latitude": "" },
+    "link": "https://pll.harvard.edu/course/introduction-data-science-python",
+    "target_audience": "Intermediate",
+    "women_focused": "Open to all",
+    "tags": ["#python", "#cs50", "#data", "#datascience"]
+  },
+  {
+    "title": "Web Programming with Python and JavaScript",
+    "duration": "12 weeks",
+    "starts": "Available immediately",
+    "timeline": "6-9 hours per week, but can be done at your own pace. Recorded lessons & projects",
+    "delivery_method": "Online",
+    "pace": "Self-paced",
+    "cost": "Free",
+    "provider": "CS50 (Harvard)",
+    "coordinates": { "longitude": "", "latitude": "" },
+    "link": "https://pll.harvard.edu/course/cs50s-web-programming-python-and-javascript",
+    "target_audience": "Intermediate",
+    "women_focused": "Open to all",
+    "tags": ["#python", "#cs50", "#javascript", "#webdevelopment", "frontend"]
+  },
+  {
+    "title": "Introduction to Databases with SQL",
+    "duration": "7 weeks",
+    "starts": "Available immediately",
+    "timeline": "6-12 hours per week, but can be done at your own pace. Recorded lessons & projects",
+    "delivery_method": "Online",
+    "pace": "Self-paced",
+    "cost": "Free",
+    "provider": "CS50 (Harvard)",
+    "coordinates": { "longitude": "", "latitude": "" },
+    "link": "https://pll.harvard.edu/course/cs50s-introduction-databases-sql",
+    "target_audience": "Beginner",
+    "women_focused": "Open to all",
+    "tags": ["#python", "#cs50", "#javascript", "#webdevelopment", "frontend"]
+  },
+  {
+    "title": "Introduction to Databases with SQL",
+    "duration": "7 weeks",
+    "starts": "Available immediately",
+    "timeline": "6-12 hours per week, but can be done at your own pace. Recorded lessons & projects",
+    "delivery_method": "Online",
+    "pace": "Self-paced",
+    "cost": "Free",
+    "provider": "CS50 (Harvard)",
+    "coordinates": { "longitude": "", "latitude": "" },
+    "link": "https://pll.harvard.edu/course/cs50s-introduction-databases-sql",
+    "target_audience": "Beginner",
+    "women_focused": "Open to all",
+    "tags": ["#python", "#cs50", "#javascript", "#webdevelopment", "frontend"]
   }
 ]
