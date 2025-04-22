@@ -111,15 +111,15 @@
     "title": "Introduction to Javascript",
     "duration": "7 weeks",
     "starts": "01-04-2025",
-    "timeline": "6-12 hours per week, but can be done at your own pace. Recorded lessons & projects",
+    "timeline": "8 Weeks of 8 lessons",
     "delivery_method": "Online",
     "pace": "Self-paced",
     "cost": "Free",
-    "provider": "CS50 (Harvard)",
+    "provider": "Code First Girls",
     "coordinates": { "longitude": "", "latitude": "" },
-    "link": "https://pll.harvard.edu/course/cs50s-introduction-databases-sql",
+    "link": "https://codefirstgirls.com/courses/coding-kickstarter/#ckscourse",
     "target_audience": "Beginner",
-    "women_focused": "Open to all",
-    "tags": ["#python", "#cs50", "#javascript", "#webdevelopment", "frontend"]
+    "women_focused": "Yes",
+    "tags": ["#javascript", "#webdevelopment", "frontend", "cfg"]
   }
 ]
