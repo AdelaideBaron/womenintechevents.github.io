@@ -82,11 +82,15 @@
   gap: 1rem;
   justify-content: flex-start;
   margin-bottom: 1rem;
+  font-family: "Boldonse", system-ui, sans-serif; /* Added custom font */
+  align-items: center; /* Center the items vertically */
 }
 
 #filters label {
   width: auto;
   margin-bottom: 0.5rem;
+  font-family: "Boldonse", system-ui, sans-serif; /* Added custom font */
+  margin-right: 8px; /* Adds spacing between the label and select box */
 }
 
 #filters select {
@@ -96,6 +100,7 @@
   font-size: 1rem;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  font-family: "Boldonse", system-ui, sans-serif; /* Added custom font */
 }
 
 @media (max-width: 768px) {
@@ -112,6 +117,7 @@
 #tagFilter {
   padding: 0.5em;
   border-radius: 4px;
+  font-family: "Boldonse", system-ui, sans-serif; /* Added custom font */
 }
 
 .tag {
@@ -122,4 +128,5 @@
   border-radius: 4px;
   display: inline-block;
   font-size: 0.85em;
+  font-family: "Boldonse", system-ui, sans-serif; /* Added custom font */
 }
