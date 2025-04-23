@@ -52,16 +52,36 @@
         });
 
       // load courses
+
+      // load courses
       fetch("courses.json")
         .then((response) => response.json())
         .then((courses) => {
           const coursesContainer = document.getElementById("courses");
           const tagFilter = document.getElementById("tagFilter");
 
-          // Collect unique tags for the filter dropdown
+          // Add region filter dropdown
+          const regionFilter = document.createElement("select");
+          regionFilter.id = "regionFilter";
+          const regionLabel = document.createElement("label");
+          regionLabel.htmlFor = "regionFilter";
+          regionLabel.textContent = "Filter by region:";
+          document.getElementById("filters").appendChild(regionLabel);
+          document.getElementById("filters").appendChild(regionFilter);
+
+          // Collect unique tags and countries
           const allTags = new Set();
+          const allCountries = new Set(["all"]);
           courses.forEach((course) => {
             course.tags.forEach((tag) => allTags.add(tag));
+
+            const region = course.region_available.toLowerCase();
+            if (region === "none specified") {
+              allCountries.add("none specified");
+            } else {
+              const country = region.split(":")[0].trim();
+              if (country) allCountries.add(country);
+            }
           });
 
           // Populate tag filter options
@@ -72,79 +92,95 @@
             tagFilter.appendChild(option);
           });
 
+          // Populate region filter options
+          allCountries.forEach((country) => {
+            const option = document.createElement("option");
+            option.value = country;
+            option.textContent =
+              country === "none specified"
+                ? "None Specified"
+                : country.charAt(0).toUpperCase() + country.slice(1);
+            regionFilter.appendChild(option);
+          });
+
           // Function to render filtered and sorted courses
-          function renderCourses(filterTag = "all") {
+          function renderCourses(filterTag = "all", filterRegion = "all") {
             coursesContainer.innerHTML = "";
 
-            // Filter by selected tag
-            let filteredCourses =
-              filterTag === "all"
-                ? courses
-                : courses.filter((course) => course.tags.includes(filterTag));
+            let filteredCourses = courses.filter((course) => {
+              const matchesTag =
+                filterTag === "all" || course.tags.includes(filterTag);
 
-            // Sort by start date (most recent first)
+              const region = course.region_available.toLowerCase();
+              const courseCountry =
+                region === "none specified"
+                  ? "none specified"
+                  : region.split(":")[0].trim();
+
+              const matchesRegion =
+                filterRegion === "all" || courseCountry === filterRegion;
+
+              return matchesTag && matchesRegion;
+            });
+
+            // Sort by start date
             filteredCourses.sort((a, b) => {
               const parseDate = (date) => {
                 if (date.toLowerCase() === "available immediately")
-                  return Number.MAX_SAFE_INTEGER; // latest possible
+                  return Number.MAX_SAFE_INTEGER;
                 const [day, month, year] = date.split("-").map(Number);
                 return new Date(year, month - 1, day).getTime();
               };
-              return parseDate(a.starts) - parseDate(b.starts); // ascending — earliest first
+              return parseDate(a.starts) - parseDate(b.starts);
             });
 
-            // Render course cards
+            // Render cards
             filteredCourses.forEach((course) => {
               const card = document.createElement("div");
               card.className = "course-card";
 
-              // Primary course info
               card.innerHTML = `
-        <h2>${course.title}</h2>
-        <p><strong>Provider:</strong> ${course.provider}</p>
-        <p><strong>Starts:</strong> ${course.starts}</p>
-        <p><strong>Start Date Flexible?:</strong> ${
-          course.start_date_flexible
-        }</p>
+          <h2>${course.title}</h2>
+          <p><strong>Provider:</strong> ${course.provider}</p>
+          <p><strong>Regions Available:</strong> ${course.region_available}</p>
+          <p><strong>Starts:</strong> ${course.starts}</p>
+          <p><strong>Start Date Flexible?:</strong> ${
+            course.start_date_flexible
+          }</p>
+          <p><strong>Audience:</strong> ${course.target_audience}</p>
+          <p><strong>Delivery:</strong> ${course.delivery_method}</p>
+          <div class="more-details" style="display: none;">
+            ${
+              course.duration
+                ? `<p><strong>Duration:</strong> ${course.duration}</p>`
+                : ""
+            }
+            ${course.cost ? `<p><strong>Cost:</strong> ${course.cost}</p>` : ""}
+            ${
+              course.timeline
+                ? `<p><strong>Timeline:</strong> ${course.timeline}</p>`
+                : ""
+            }
+            ${course.pace ? `<p><strong>Pace:</strong> ${course.pace}</p>` : ""}
+            ${
+              course.women_focused
+                ? `<p><strong>Women Focused:</strong> ${course.women_focused}</p>`
+                : ""
+            }
+            ${
+              course.tags
+                ? `<p><strong>Tags:</strong> ${course.tags
+                    .map((tag) => `<span class="tag">${tag}</span>`)
+                    .join(" ")}</p>`
+                : ""
+            }
+            <a href="${
+              course.link
+            }" target="_blank"><strong>🔗 Link to provider</strong></a>
+          </div>
+          <button class="toggle-details">Show More</button>
+        `;
 
-        <p><strong>Audience:</strong> ${course.target_audience}</p>
-        <p><strong>Delivery:</strong> ${course.delivery_method}</p>
-
-
-        <div class="more-details" style="display: none;">
-          ${
-            course.duration
-              ? `<p><strong>Duration:</strong> ${course.duration}</p>`
-              : ""
-          }
-          ${course.cost ? `<p><strong>Cost:</strong> ${course.cost}</p>` : ""}
-          ${
-            course.timeline
-              ? `<p><strong>Timeline:</strong> ${course.timeline}</p>`
-              : ""
-          }
-          ${course.pace ? `<p><strong>Pace:</strong> ${course.pace}</p>` : ""}
-          ${
-            course.women_focused
-              ? `<p><strong>Women Focused:</strong> ${course.women_focused}</p>`
-              : ""
-          }
-          ${
-            course.tags
-              ? `<p><strong>Tags:</strong> ${course.tags
-                  .map((tag) => `<span class="tag">${tag}</span>`)
-                  .join(" ")}</p>`
-              : ""
-          }
-          <a href="${
-            course.link
-          }" target="_blank"><strong>🔗 Link to provider</strong></a>
-        </div>
-
-        <button class="toggle-details">Show More</button>
-      `;
-
-              // Toggle for more details
               card
                 .querySelector(".toggle-details")
                 .addEventListener("click", () => {
@@ -163,11 +199,16 @@
           // Initial render
           renderCourses();
 
-          // Filter change event
+          // Tag filter
           tagFilter.addEventListener("change", () => {
-            renderCourses(tagFilter.value);
+            renderCourses(tagFilter.value, regionFilter.value);
           });
-        });
+
+          // Region filter
+          regionFilter.addEventListener("change", () => {
+            renderCourses(tagFilter.value, regionFilter.value);
+          });
+        }); // <--- This closes the .then() from fetch("courses.json")
     </script>
   </body>
 </html>

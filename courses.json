@@ -13,8 +13,8 @@
     "link": "https://pll.harvard.edu/course/cs50s-introduction-programming-python",
     "target_audience": "Beginner",
     "women_focused": "Open to all",
-    "tags": ["#python", "#cs50"]
-
+    "tags": ["#python", "#cs50"],
+    "region_available": "none specified"
   },
   {
     "title": "Introduction to Artificial Intelligence with Python",
@@ -30,8 +30,8 @@
     "link": "https://pll.harvard.edu/course/cs50s-introduction-artificial-intelligence-python",
     "target_audience": "Intermediate",
     "women_focused": "Open to all",
-    "tags": ["#python", "#cs50", "#ai"]
-
+    "tags": ["#python", "#cs50", "#ai"],
+    "region_available": "none specified"
   },
   {
     "title": "Introduction to Cybersecurity",
@@ -47,8 +47,8 @@
     "link": "https://pll.harvard.edu/course/cs50s-introduction-cybersecurity",
     "target_audience": "Beginner",
     "women_focused": "Open to all",
-    "tags": ["#python", "#cs50", "#cybersecurity", "#security"]
-
+    "tags": ["#python", "#cs50", "#cybersecurity", "#security"],
+    "region_available": "none specified"
   },
   {
     "title": "Introduction to Data Science with Python",
@@ -64,7 +64,8 @@
     "link": "https://pll.harvard.edu/course/introduction-data-science-python",
     "target_audience": "Intermediate",
     "women_focused": "Open to all",
-    "tags": ["#python", "#cs50", "#data", "#datascience"]
+    "tags": ["#python", "#cs50", "#data", "#datascience"],
+    "region_available": "none specified"
   },
   {
     "title": "Web Programming with Python and JavaScript",
@@ -80,7 +81,8 @@
     "link": "https://pll.harvard.edu/course/cs50s-web-programming-python-and-javascript",
     "target_audience": "Intermediate",
     "women_focused": "Open to all",
-    "tags": ["#python", "#cs50", "#javascript", "#webdevelopment", "frontend"]
+    "tags": ["#python", "#cs50", "#javascript", "#webdevelopment", "frontend"],
+    "region_available": "none specified"
   },
   {
     "title": "Introduction to Databases with SQL",
@@ -96,7 +98,8 @@
     "link": "https://pll.harvard.edu/course/cs50s-introduction-databases-sql",
     "target_audience": "Beginner",
     "women_focused": "Open to all",
-    "tags": ["#python", "#cs50", "#javascript", "#webdevelopment", "frontend"]
+    "tags": ["#python", "#cs50", "#javascript", "#webdevelopment", "frontend"],
+    "region_available": "none specified"
   },
   {
     "title": "Introduction to Databases with SQL",
@@ -112,13 +115,14 @@
     "link": "https://pll.harvard.edu/course/cs50s-introduction-databases-sql",
     "target_audience": "Beginner",
     "women_focused": "Open to all",
-    "tags": ["#python", "#cs50", "#javascript", "#webdevelopment", "frontend"]
+    "tags": ["#python", "#cs50", "#javascript", "#webdevelopment", "frontend"],
+    "region_available": "none specified"
   },
   {
     "title": "Introduction to Javascript",
-    "duration": "7 weeks",
+    "duration": "8 weeks",
     "starts": "01-04-2025",
-    "start_date_flexible": "Yes",
+    "start_date_flexible": "Yes - April & May & June (location depending)",
     "timeline": "8 Weeks of 8 lessons",
     "delivery_method": "Online",
     "pace": "Self-paced",
@@ -128,6 +132,127 @@
     "link": "https://codefirstgirls.com/courses/coding-kickstarter/#ckscourse",
     "target_audience": "Beginner",
     "women_focused": "Yes",
-    "tags": ["#javascript", "#webdevelopment", "#frontend", "#cfg"]
+    "tags": ["#javascript", "#webdevelopment", "#frontend", "#cfg"],
+    "region_available": "UK: NW England, London, SW England, Scotland, Wales"
+  },
+  {
+    "title": "Introduction to Javascript",
+    "duration": "8 weeks",
+    "starts": "01-04-2025",
+    "start_date_flexible": "Yes - April & May",
+    "timeline": "8 Weeks of 8 lessons",
+    "delivery_method": "Online",
+    "pace": "Self-paced",
+    "cost": "Free",
+    "provider": "Code First Girls",
+    "coordinates": { "longitude": "", "latitude": "" },
+    "link": "https://codefirstgirls.com/courses/coding-kickstarter/#ckscourse",
+    "target_audience": "Beginner",
+    "women_focused": "Yes",
+    "tags": ["#javascript", "#webdevelopment", "#frontend", "#cfg"],
+    "region_available": "Germany: Berlin"
+  },
+  {
+    "title": "Introduction to Data & SQL",
+    "duration": "8 weeks",
+    "starts": "01-04-2025",
+    "start_date_flexible": "Yes - April & May",
+    "timeline": "8 Weeks of 8 lessons",
+    "delivery_method": "Online",
+    "pace": "Self-paced",
+    "cost": "Free",
+    "provider": "Code First Girls",
+    "coordinates": { "longitude": "", "latitude": "" },
+    "link": "https://codefirstgirls.com/courses/coding-kickstarter/#ckscourse",
+    "target_audience": "Beginner",
+    "women_focused": "Yes",
+    "tags": ["#data", "#sql", "#analytics", "#cfg"],
+    "region_available": "UK: Scotland, all of UK"
+  },
+  {
+    "title": "Introduction to Data & SQL",
+    "duration": "8 weeks",
+    "starts": "01-04-2025",
+    "start_date_flexible": "Yes - April & May",
+    "timeline": "8 Weeks of 8 lessons",
+    "delivery_method": "Online",
+    "pace": "Self-paced",
+    "cost": "Free",
+    "provider": "Code First Girls",
+    "coordinates": { "longitude": "", "latitude": "" },
+    "link": "https://codefirstgirls.com/courses/coding-kickstarter/#ckscourse",
+    "target_audience": "Beginner",
+    "women_focused": "Yes",
+    "tags": ["#data", "#sql", "#analytics", "#cfg"],
+    "region_available": "India: Bangalore"
+  },
+  
+  {
+    "title": "Introduction to Data & SQL",
+    "duration": "8 weeks",
+    "starts": "01-04-2025",
+    "start_date_flexible": "Yes - April & May",
+    "timeline": "8 Weeks of 8 lessons",
+    "delivery_method": "Online",
+    "pace": "Self-paced",
+    "cost": "Free",
+    "provider": "Code First Girls",
+    "coordinates": { "longitude": "", "latitude": "" },
+    "link": "https://codefirstgirls.com/courses/coding-kickstarter/#ckscourse",
+    "target_audience": "Beginner",
+    "women_focused": "Yes",
+    "tags": ["#data", "#sql", "#analytics", "#cfg"],
+    "region_available": "Germany: Berlin"
+  },
+  {
+    "title": "Introduction to Python",
+    "duration": "8 weeks",
+    "starts": "01-04-2025",
+    "start_date_flexible": "Yes - April & May & June (location depending)",
+    "timeline": "8 Weeks of 8 lessons",
+    "delivery_method": "Online",
+    "pace": "Self-paced",
+    "cost": "Free",
+    "provider": "Code First Girls",
+    "coordinates": { "longitude": "", "latitude": "" },
+    "link": "https://codefirstgirls.com/courses/coding-kickstarter/#ckscourse",
+    "target_audience": "Beginner",
+    "women_focused": "Yes",
+    "tags": ["#python", "#appdevelopment", "#cfg"],
+    "region_available": "UK: East Midlands, Wales, & all of UK"
+  },
+  {
+    "title": "Introduction to Python",
+    "duration": "8 weeks",
+    "starts": "01-04-2025",
+    "start_date_flexible": "Yes - April & May",
+    "timeline": "8 Weeks of 8 lessons",
+    "delivery_method": "Online",
+    "pace": "Self-paced",
+    "cost": "Free",
+    "provider": "Code First Girls",
+    "coordinates": { "longitude": "", "latitude": "" },
+    "link": "https://codefirstgirls.com/courses/coding-kickstarter/#ckscourse",
+    "target_audience": "Beginner",
+    "women_focused": "Yes",
+    "tags": ["#python", "#appdevelopment", "#cfg"],
+    "region_available": "India: Bangalore"
+  },
+  {
+    "title": "Introduction to C#",
+    "duration": "8 weeks",
+    "starts": "01-04-2025",
+    "start_date_flexible": "Within April",
+    "timeline": "8 Weeks of 8 lessons",
+    "delivery_method": "Online",
+    "pace": "Self-paced",
+    "cost": "Free",
+    "provider": "Code First Girls",
+    "coordinates": { "longitude": "", "latitude": "" },
+    "link": "https://codefirstgirls.com/courses/coding-kickstarter/#ckscourse",
+    "target_audience": "Beginner",
+    "women_focused": "Yes",
+    "tags": ["#csharp", "#webapps", "#gamedev", "#dotnet"],
+    "region_available": "UK: London"
   }
 ]
