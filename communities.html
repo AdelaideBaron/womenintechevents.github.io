@@ -10,20 +10,21 @@
     <div id="header"></div>
     <h1>COMMUNITIES</h1>
 
-      <div class="support-widget">
-        <script
-          data-name="BMC-Widget"
-          data-cfasync="false"
-          src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-          data-id="codeaddi1"
-          data-description="Support me on Buy me a coffee!"
-          data-message="Thanks for your support! You can now help me continue making content through buy me a coffee ☕ "
-          data-color="#FF5F5F"
-          data-position="Right"
-          data-x_margin="18"
-          data-y_margin="18"
-        ></script>
+    <div class="support-widget">
+      <script
+        data-name="BMC-Widget"
+        data-cfasync="false"
+        src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+        data-id="codeaddi1"
+        data-description="Support me on Buy me a coffee!"
+        data-message="Thanks for your support! You can now help me continue making content through buy me a coffee ☕ "
+        data-color="#FF5F5F"
+        data-position="Right"
+        data-x_margin="18"
+        data-y_margin="18"
+      ></script>
     </div>
+    <div id="footer"></div>
 
     <script type="module">
       fetch("header.html")
@@ -40,6 +41,12 @@
               link.classList.add("active");
             }
           });
+        });
+
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("footer").innerHTML = html;
         });
     </script>
   </body>

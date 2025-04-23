@@ -34,6 +34,9 @@
       ></script>
     </div>
 
+    <div id="footer"></div>
+    <!-- Placeholder for the footer -->
+
     <script type="module">
       fetch("header.html")
         .then((response) => response.text())
@@ -50,8 +53,6 @@
             }
           });
         });
-
-      // load courses
 
       // load courses
       fetch("courses.json")
@@ -208,7 +209,13 @@
           regionFilter.addEventListener("change", () => {
             renderCourses(tagFilter.value, regionFilter.value);
           });
-        }); // <--- This closes the .then() from fetch("courses.json")
+        });
+
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("footer").innerHTML = html;
+        });
     </script>
   </body>
 </html>
