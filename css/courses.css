@@ -37,7 +37,6 @@
   text-decoration: underline;
 }
 
-/* 📱 Mobile responsive: stack cards in a single column */
 @media (max-width: 768px) {
   .course-card {
     flex: 1 1 100%;
@@ -76,8 +75,39 @@
   font-size: 0.85em;
 }
 
+/* Filters */
 #filters {
-  margin-bottom: 1em;
+  display: flex;
+  flex-wrap: nowrap; /* No wrapping on larger screens */
+  gap: 1rem; /* Adds space between filter elements */
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+#filters label {
+  width: auto;
+  margin-bottom: 0.5rem; /* Adds space between the label and the select */
+}
+
+#filters select {
+  width: 200px;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 768px) {
+  #filters {
+    flex-direction: column; /* Stack the filters on mobile */
+    align-items: flex-start; /* Ensures the items align to the left */
+  }
+
+  #filters select {
+    width: 100%; /* Makes the select inputs full width */
+  }
 }
 
 #tagFilter {
