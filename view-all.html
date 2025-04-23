@@ -46,6 +46,7 @@
     </div>
 
     <div id="modal-container"></div>
+    <div id="footer"></div>
 
     <script type="module">
       import { events } from "./js/event_log.js";
@@ -157,6 +158,12 @@
           .getElementById("map-view-btn")
           .addEventListener("click", switchToMapView);
       });
+
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("footer").innerHTML = html;
+        });
     </script>
   </body>
 </html>

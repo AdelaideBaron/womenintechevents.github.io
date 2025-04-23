@@ -1,0 +1,17 @@
+{
+  "title": "Introduction to Databases with SQL",
+  "duration": "7 weeks",
+  "starts": "Available immediately",
+  "start_date_flexible": "Yes",
+  "timeline": "6-12 hours per week, but can be done at your own pace. Recorded lessons & projects",
+  "delivery_method": "Online",
+  "pace": "Self-paced",
+  "cost": "Free",
+  "provider": "CS50 (Harvard)",
+  "coordinates": { "longitude": "", "latitude": "" },
+  "link": "https://pll.harvard.edu/course/cs50s-introduction-databases-sql",
+  "target_audience": "Beginner",
+  "women_focused": "Open to all",
+  "tags": ["#python", "#cs50", "#javascript", "#webdevelopment", "frontend"],
+  "region_available": "none specified OR Country: location"
+}
