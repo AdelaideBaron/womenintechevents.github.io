@@ -469,7 +469,7 @@ nav.main-nav a.active {
   position: fixed;
   bottom: 40px;
   right: 40px;
-  background-color: #f50057;
+  background-color: #ff5c5c;
   color: white;
   font-size: 18px;
   border-radius: 50px;
@@ -485,7 +485,7 @@ nav.main-nav a.active {
 }
 
 .add-event-fab:hover {
-  background-color: #c51162;
+  background-color: #FF2E2E;
   transform: scale(1.05);
 }
 
