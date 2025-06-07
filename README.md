@@ -19,13 +19,13 @@ A simple webpage for showcasing opportunities for women in tech — events, cour
 
 ## ✨ Submitting an Event or Course
 
-We now use **Google Forms** to collect new events and learning opportunities.  
-**Manual submissions via GitHub are no longer supported.**
+I use **Google Forms** to collect new events and learning opportunities.
 
 - 👉 [Submit an event](https://docs.google.com/forms/d/1ddbjShFsWmDSXdW9e_uVGQllfLwNbXxrRkOkH818sa8/viewform)
 - 👉 [Submit a course or learning opportunity](https://forms.gle/5NernY5jdfXjhpaFA)
 
-All submissions are reviewed and automatically published once approved.  
+All submissions are reviewed and automatically published once approved.
+
 Thank you for contributing to the community! 💛
 
 ---
@@ -40,21 +40,23 @@ Scripts are located in the `/cloud_integration` directory and handle:
 - Appending valid entries to `events.json` and `courses.json`
 - Committing updates to this repo
 
-If you're curious about how it works, check the [GitHub Actions workflow](.github/workflows/update.yml).
+If you're curious about how it works, check the [GitHub Actions workflow](.github/workflows/get-event-course-submissions.yml)
 
 ---
 
 ## 🧑‍💻 Contributing to the Codebase
 
-If you'd like to contribute to the code (not event data), feel free to:
+If you'd like to contribute to the code (not just course/event data), feel free to:
 
 1. Fork this repo
 2. Create a branch in your fork
 3. Make your changes
 4. Open a pull request back to this repo  
-   _(Request @adelaidebaron as a reviewer if needed)_
+   _(Request @adelaidebaron as a reviewer)_
 
 ---
+
+# Development
 
 ## 🖥 Local Development
 
