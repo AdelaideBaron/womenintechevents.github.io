@@ -180,6 +180,11 @@
                 <p><strong>Audience:</strong> ${course.target_audience}</p>
                 <p><strong>Delivery:</strong> ${course.delivery_method}</p>
                 <div class="more-details" style="display: none;">
+                   ${
+                     course.description
+                       ? `<p><strong>Description:</strong> ${course.description}</p>`
+                       : ""
+                   }
                   ${
                     course.duration
                       ? `<p><strong>Duration:</strong> ${course.duration}</p>`
