@@ -94,4 +94,9 @@ I recommend the following extensions:
 - Live Server by Ritwick Dey
 - Prettier - Code formatter by Prettier
 
+# Google Cloud Integration
+
+- integrated with google cloud to scrape data from sheet submissions
+- see '/cloud_integration' for further details
+
 **_Made by [@codeaddi](https://www.instagram.com/codeaddi/)_**
