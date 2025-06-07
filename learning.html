@@ -84,29 +84,35 @@
             }
           });
 
-          allTags.forEach((tag) => {
-            const option = document.createElement("option");
-            option.value = tag;
-            option.textContent = tag;
-            tagFilter.appendChild(option);
-          });
+          Array.from(allTags)
+            .sort((a, b) => a.localeCompare(b)) // Alphabetical sort
+            .forEach((tag) => {
+              const option = document.createElement("option");
+              option.value = tag;
+              option.textContent = tag;
+              tagFilter.appendChild(option);
+            });
 
-          allCountries.forEach((country) => {
-            const option = document.createElement("option");
-            option.value = country;
-            option.textContent =
-              country === "none specified"
-                ? "None Specified"
-                : country.charAt(0).toUpperCase() + country.slice(1);
-            regionFilter.appendChild(option);
-          });
+          Array.from(allProviders)
+            .sort((a, b) => a.localeCompare(b))
+            .forEach((provider) => {
+              const option = document.createElement("option");
+              option.value = provider;
+              option.textContent = provider;
+              providerFilter.appendChild(option);
+            });
 
-          allProviders.forEach((provider) => {
-            const option = document.createElement("option");
-            option.value = provider;
-            option.textContent = provider;
-            providerFilter.appendChild(option);
-          });
+          Array.from(allCountries)
+            .sort((a, b) => a.localeCompare(b))
+            .forEach((country) => {
+              const option = document.createElement("option");
+              option.value = country;
+              option.textContent =
+                country === "none specified"
+                  ? "None Specified"
+                  : country.charAt(0).toUpperCase() + country.slice(1);
+              regionFilter.appendChild(option);
+            });
 
           function renderCourses(
             filterTag = "all",
