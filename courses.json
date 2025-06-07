@@ -1,6 +1,7 @@
 [
   {
     "title": "Introduction to Programming with Python",
+    "description": "A beginner-friendly course introducing the fundamentals of programming using Python. You'll learn variables, conditionals, loops, and functions while building small projects.",
     "duration": "9 weeks",
     "start_date_flexible": "Yes",
     "timeline": "3-9 hours per week, but can be done at your own pace. Recorded lessons & projects",
@@ -17,6 +18,7 @@
   },
   {
     "title": "Introduction to Artificial Intelligence with Python",
+    "description": "Dive into the basics of AI, including search algorithms, knowledge representation, and neural networks—all through Python. Best suited for learners with some prior coding experience. [AI GENERATED]",
     "duration": "7 weeks",
     "start_date_flexible": "Yes",
     "timeline": "10-30 hours per week, but can be done at your own pace. Recorded lessons & projects",
@@ -33,6 +35,7 @@
   },
   {
     "title": "Introduction to Cybersecurity",
+    "description": "Explore the core principles of cybersecurity, from cryptography to network threats. No prior experience needed—perfect for beginners interested in online safety and security careers. [AI GENERATED]",
     "duration": "5 weeks",
     "start_date_flexible": "Yes",
     "timeline": "2-6 hours per week, but can be done at your own pace. Recorded lessons & projects",
@@ -49,6 +52,7 @@
   },
   {
     "title": "Introduction to Data Science with Python",
+    "description": "Learn data wrangling, visualization, and machine learning using Python. A hands-on introduction to data science tools and techniques, ideal for those with basic Python knowledge. [AI GENERATED]",
     "duration": "8 weeks",
     "start_date_flexible": "Yes",
     "timeline": "3-4 hours per week, but can be done at your own pace. Recorded lessons & projects",
@@ -72,6 +76,7 @@
   },
   {
     "title": "Web Programming with Python and JavaScript",
+    "description": "Covers full-stack web development fundamentals using Python (Flask) and JavaScript. You'll build dynamic websites and explore front-end and back-end integration. [AI GENERATED]",
     "duration": "12 weeks",
     "start_date_flexible": "Yes",
     "timeline": "6-9 hours per week, but can be done at your own pace. Recorded lessons & projects",
@@ -88,6 +93,7 @@
   },
   {
     "title": "Introduction to Databases with SQL",
+    "description": "Master the basics of relational databases and SQL. You'll learn to query, analyze, and structure data in real-world scenarios—a great entry point into data-related roles. [AI GENERATED]",
     "duration": "7 weeks",
     "start_date_flexible": "Yes",
     "timeline": "6-12 hours per week, but can be done at your own pace. Recorded lessons & projects",
@@ -112,6 +118,7 @@
   },
   {
     "title": "Introduction to Javascript - Class",
+    "description": "Designed for beginners, this course teaches the basics of JavaScript and front-end development. Suitable for women exploring careers in tech through hands-on projects. [AI GENERATED]",
     "duration": "8 weeks",
     "start_date_flexible": "Yes - check website",
     "timeline": "8 Weeks self paced learning",
@@ -126,9 +133,9 @@
     "tags": ["#javascript", "#webdevelopment", "#frontend", "#cfg"],
     "region_available": "UK: Various; Germany: All"
   },
-
   {
     "title": "Introduction to Data & SQL - Class",
+    "description": "This beginner course teaches how to organize, query, and analyze data using SQL. Tailored for women new to tech and interested in data and analytics roles. [AI GENERATED]",
     "duration": "8 weeks",
     "start_date_flexible": "Yes - check website",
     "timeline": "8 Weeks self paced learning",
@@ -152,9 +159,9 @@
     ],
     "region_available": "UK: Various; India: All; Germany: All"
   },
-
   {
     "title": "Introduction to Python - Class",
+    "description": "A supportive entry point into Python programming. Ideal for women beginners, with a focus on coding fundamentals and practical applications in back-end development. [AI GENERATED]",
     "duration": "8 weeks",
     "start_date_flexible": "Yes - check website",
     "timeline": "8 Weeks self paced learning",
@@ -169,9 +176,9 @@
     "tags": ["#python", "#appdevelopment", "#cfg", "#backend"],
     "region_available": "UK: Various; India: All; Poland: All"
   },
-
   {
     "title": "Introduction to Coding - MOOC",
+    "description": "A short course introducing core programming concepts like loops and functions using Python. Includes weekly live sessions and quizzes to earn a certificate. [AI GENERATED]",
     "duration": "4 weeks",
     "starts": "17-06-2025",
     "start_date_flexible": "Yes, but deadline for the MCQs for certificate (TBC, typically 2 weeks from final session)",
@@ -188,6 +195,7 @@
   },
   {
     "title": "Intro to Agile & Scrum - MOOC",
+    "description": "Learn Agile methodologies, including Scrum and Waterfall frameworks. Gain insights into how teams work in tech, and get practical knowledge about JIRA and workflows. [AI GENERATED]",
     "duration": "4 weeks",
     "starts": "04-06-2025",
     "start_date_flexible": "Yes, but deadline for the MCQs 25th June 2025",
@@ -204,6 +212,7 @@
   },
   {
     "title": "Intro to Cloud & Deployment - MOOC",
+    "description": "An introductory course exploring cloud technologies and deployment practices, with a focus on platforms like AWS. Great for beginners wanting to understand DevOps basics. [AI GENERATED]",
     "duration": "4 weeks",
     "starts": "04-06-2025",
     "start_date_flexible": "Yes, but deadline for the MCQs 25th June 2025",
@@ -220,6 +229,7 @@
   },
   {
     "title": "Intro to Assessments - MOOC",
+    "description": "Prepares you for coding and technical assessments used in hiring, including platforms like HackerRank and LeetCode. Great for job-seekers in tech. [AI GENERATED] ",
     "duration": "4 weeks",
     "starts": "04-06-2025",
     "start_date_flexible": "Yes, but deadline for the MCQs 25th June 2025",
