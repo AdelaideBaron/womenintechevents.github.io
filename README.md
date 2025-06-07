@@ -65,7 +65,9 @@ Only collaborators of this repo may push. There is a workaround below. However, 
 
 Add the event to the `event_log.js` file.
 
-## [Add an event using Google](https://docs.google.com/forms/d/1ddbjShFsWmDSXdW9e_uVGQllfLwNbXxrRkOkH818sa8/edit?pli=1)
+## [Add an event using this form](https://docs.google.com/forms/d/1ddbjShFsWmDSXdW9e_uVGQllfLwNbXxrRkOkH818sa8/edit?pli=1)
+
+## [Add a course/learning opportunity using this form](https://forms.gle/5NernY5jdfXjhpaFA)
 
 ## Requesting Page Updates
 
