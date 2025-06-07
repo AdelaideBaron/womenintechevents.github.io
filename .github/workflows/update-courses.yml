@@ -1,4 +1,4 @@
-name: Update Courses from Google Sheets
+name: Update Courses and Events from Google Sheets
 
 on:
   workflow_dispatch:
@@ -28,10 +28,14 @@ jobs:
         working-directory: cloud_integration
         run: python fetch_learning_submissions.py
 
+      - name: Append new courses to root courses.json
+        working-directory: cloud_integration
+        run: python append_to_courses.py
+
       - name: Commit updated courses.json
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add cloud_integration/courses.json
+          git add courses.json
           git commit -m "Update courses.json from Google Sheets" || echo "No changes"
           git push
