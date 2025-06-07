@@ -111,7 +111,7 @@
     "region_available": "none specified"
   },
   {
-    "title": "Introduction to Javascript",
+    "title": "Introduction to Javascript - Class",
     "duration": "8 weeks",
     "start_date_flexible": "Yes - check website",
     "timeline": "8 Weeks self paced learning",
@@ -128,7 +128,7 @@
   },
 
   {
-    "title": "Introduction to Data & SQL",
+    "title": "Introduction to Data & SQL - Class",
     "duration": "8 weeks",
     "start_date_flexible": "Yes - check website",
     "timeline": "8 Weeks self paced learning",
@@ -154,7 +154,7 @@
   },
 
   {
-    "title": "Introduction to Python",
+    "title": "Introduction to Python - Class",
     "duration": "8 weeks",
     "start_date_flexible": "Yes - check website",
     "timeline": "8 Weeks self paced learning",
@@ -171,7 +171,7 @@
   },
 
   {
-    "title": "Introduction to Coding",
+    "title": "Introduction to Coding - MOOC",
     "duration": "4 weeks",
     "starts": "17-06-2025",
     "start_date_flexible": "Yes, but deadline for the MCQs for certificate (TBC, typically 2 weeks from final session)",
@@ -183,11 +183,11 @@
     "link": "https://codefirstgirls.com/courses/moocs/#moocssessions",
     "target_audience": "Beginner",
     "women_focused": "Yes",
-    "tags": ["#python", "#coding", "#loops", "#functions"],
+    "tags": ["#python", "#coding", "#mooc", "#loops", "#functions"],
     "region_available": "none specified"
   },
   {
-    "title": "INTRO TO AGILE & SCRUM",
+    "title": "Intro to Agile & Scrum - MOOC",
     "duration": "4 weeks",
     "starts": "04-06-2025",
     "start_date_flexible": "Yes, but deadline for the MCQs 25th June 2025",
@@ -199,11 +199,11 @@
     "link": "https://codefirstgirls.com/courses/moocs/#moocssessions",
     "target_audience": "Beginner",
     "women_focused": "Yes",
-    "tags": ["#agile", "#waterfall", "#jira", "#career"],
+    "tags": ["#agile", "#waterfall", "#mooc", "#jira", "#career", "#scrum"],
     "region_available": "none specified"
   },
   {
-    "title": "INTRO TO CLOUD & DEPLOYMENT",
+    "title": "Intro to Cloud & Deployment - MOOC",
     "duration": "4 weeks",
     "starts": "04-06-2025",
     "start_date_flexible": "Yes, but deadline for the MCQs 25th June 2025",
@@ -215,11 +215,11 @@
     "link": "https://codefirstgirls.com/courses/moocs/#moocssessions",
     "target_audience": "Beginner",
     "women_focused": "Yes",
-    "tags": ["#cloud", "#aws"],
+    "tags": ["#cloud", "#mooc", "#aws"],
     "region_available": "none specified"
   },
   {
-    "title": "INTRO TO ASSESSMENTS",
+    "title": "Intro to Assessments - MOOC",
     "duration": "4 weeks",
     "starts": "04-06-2025",
     "start_date_flexible": "Yes, but deadline for the MCQs 25th June 2025",
@@ -231,7 +231,14 @@
     "link": "https://codefirstgirls.com/courses/moocs/#moocssessions",
     "target_audience": "Beginner",
     "women_focused": "Yes",
-    "tags": ["#interviews", "#career", "#hackerrank", "#leetcode"],
+    "tags": [
+      "#interviews",
+      "#career",
+      "#hackerrank",
+      "#leetcode",
+      "#assessment",
+      "#mooc"
+    ],
     "region_available": "none specified"
   }
 ]
