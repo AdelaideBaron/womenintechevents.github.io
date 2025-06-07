@@ -2,6 +2,7 @@ name: Update Courses from Google Sheets
 
 on:
   workflow_dispatch:
+  pull_request:
 
 jobs:
   fetch_courses:
@@ -17,13 +18,13 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r cloud_integration/requirements.txt
 
       - name: Decode credentials from secret
-        run: echo "${{ secrets.GOOGLE_CREDENTIALS }}" | base64 -d > credentials.json
+        run: echo "${{ secrets.GOOGLE_CREDENTIALS }}" | base64 -d > cloud_integration/credentials.json
 
       - name: Run fetch script
-        run: python fetch_learning_submissions.py
+        run: python cloud_integration/fetch_learning_submissions.py
 
       - name: Commit updated courses.json
         run: |
