@@ -59,12 +59,15 @@
           courses.forEach((course) => {
             course.tags.forEach((tag) => allTags.add(tag));
 
-            const region = course.region_available.toLowerCase();
-            if (region === "none specified") {
+            const regionRaw = course.region_available.toLowerCase();
+            if (regionRaw === "none specified") {
               allCountries.add("none specified");
             } else {
-              const country = region.split(":")[0].trim();
-              if (country) allCountries.add(country);
+              const regionParts = regionRaw.split(";");
+              regionParts.forEach((part) => {
+                const country = part.split(":")[0].trim();
+                if (country) allCountries.add(country);
+              });
             }
           });
 
@@ -92,14 +95,20 @@
               const matchesTag =
                 filterTag === "all" || course.tags.includes(filterTag);
 
-              const region = course.region_available.toLowerCase();
-              const courseCountry =
-                region === "none specified"
-                  ? "none specified"
-                  : region.split(":")[0].trim();
+              const regionText = course.region_available.toLowerCase();
+              let courseCountries = [];
+
+              if (regionText === "none specified") {
+                courseCountries = ["none specified"];
+              } else {
+                courseCountries = regionText
+                  .split(";")
+                  .map((part) => part.split(":")[0].trim());
+              }
 
               const matchesRegion =
-                filterRegion === "all" || courseCountry === filterRegion;
+                filterRegion === "all" ||
+                courseCountries.includes(filterRegion);
 
               return matchesTag && matchesRegion;
             });
