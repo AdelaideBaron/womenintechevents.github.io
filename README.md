@@ -1,102 +1,76 @@
 # [womenintechevents.github.io](https://adelaidebaron.github.io/womenintechevents.github.io/)
 
-A simple webpage for displaying women in tech events in one place.
+A simple webpage for showcasing opportunities for women in tech — events, courses, programs, and more — all in one place.
 
 <details>
-  <summary>Example events to include</summary>
+  <summary>Includes opportunities like:</summary>
 
-- **Online events**
-- **Global events**
-- **Regional events**
-- **Courses**
-- **Online opportunities**
-- **Grants & bursaries**
-- **Mentorship programs**
-
-**_(not a limitation)_**
+- Online and global events
+- Regional/local meetups
+- Tech courses and upskilling programs
+- Mentorship opportunities
+- Grants, bursaries & scholarships
+- Online resources
+- Community and networking events
 
 </details>
 
 ---
 
-# Updating this page
+## ✨ Submitting an Event or Course
 
-Only collaborators of this repo may push. There is a workaround below. However, if you find yourself editing frequently and would like to become a collaborator - raise an issue with an explanation, and I'll take a look.
+I use **Google Forms** to collect new events and learning opportunities.
 
-## Submitting a New Event
+- 👉 [Submit an event](https://docs.google.com/forms/d/1ddbjShFsWmDSXdW9e_uVGQllfLwNbXxrRkOkH818sa8/viewform)
+- 👉 [Submit a course or learning opportunity](https://forms.gle/5NernY5jdfXjhpaFA)
 
-1. Raise a GitHub issue on this repository using the template below.
-2. Open a Pull Request (PR) by adding the event to the `event_log.js` file.
-3. Request me as a reviewer. Please note, if you haven't provided proof/sufficient details of the event, I may not be able to add it.
+All submissions are reviewed and automatically published once approved.
 
-<details> 
-<summary> Issue Template for event submission </summary>
-  
-  Fill out the following details to the best of your abilities. 
-  ```
-  {
-    date: "yyyy-mm-dd",
-    time: "6:30 PM",
-    finish_time: "8:30 PM",
-    title: "",
-    location: "",
-    country: "",
-    coordinates: { longitude: "", latitude: "" },
-    cost: "",
-    audience: "",
-    description: "",
-    event_type: "",
-    link: "",
-    women_focussed: "✅❌",
-  },
-```
-  <add any other info/notes here> 
-  
-</details>
-
-## Pushing to this repo
-
-1. Fork this repo (home page of repo -> fork at the top right). _This creates your own copy of the repo under your GitHub account, and is 'linked' to this._
-2. Work in your fork as normal, creating a branch and performing work
-3. Push to your fork
-4. Open a PR with this repo **(not yours)** as the branch to merge into
-
-### To add an event to the code:
-
-Add the event to the `event_log.js` file.
-
-## [Add an event using this form](https://docs.google.com/forms/d/1ddbjShFsWmDSXdW9e_uVGQllfLwNbXxrRkOkH818sa8/edit?pli=1)
-
-## [Add a course/learning opportunity using this form](https://forms.gle/5NernY5jdfXjhpaFA)
-
-## Requesting Page Updates
-
-Please follow these steps if you want to suggest or request any page updates:
-
-1. Create an issue, and provide as much detail as possible.
-2. If possible, create a PR yourself using the forking method above. This will speed up the process! Once you've submitted it, request me as a reviewer, and I'll take a look.
+Thank you for contributing to the community! 💛
 
 ---
 
-## About Me & My Background
+## 🔄 How This Page Updates
 
-I've missed many events or opportunities just because I didn’t check the right page or speak to the right people. There are so many accessible opportunities nowadays, and having them all in one place would really help.
+This site uses a GitHub Action to pull new events and courses submitted through Google Forms every day at midnight UTC.
 
-### Me
+Scripts are located in the `/cloud_integration` directory and handle:
 
-- I'm **Adelaide**, and I am a **backend software engineer**!
-- Those of you who know me, know that I **hate frontend development**, so that’s why this page is nice and basic! 😅
+- Fetching data from Google Sheets
+- Appending valid entries to `events.json` and `courses.json`
+- Committing updates to this repo
 
-## Local Development
+If you're curious about how it works, check the [GitHub Actions workflow](.github/workflows/get-event-course-submissions.yml)
 
-I recommend the following extensions:
+---
 
-- Live Server by Ritwick Dey
-- Prettier - Code formatter by Prettier
+## 🧑‍💻 Contributing to the Codebase
 
-# Google Cloud Integration
+If you'd like to contribute to the code (not just course/event data), feel free to:
 
-- integrated with google cloud to scrape data from sheet submissions
-- see '/cloud_integration' for further details
+1. Fork this repo
+2. Create a branch in your fork
+3. Make your changes
+4. Open a pull request back to this repo  
+   _(Request @adelaidebaron as a reviewer)_
+
+---
+
+# Development
+
+## 🖥 Local Development
+
+To preview or develop locally, recommended VS Code extensions:
+
+- Live Server (by Ritwick Dey)
+- Prettier – Code formatter (by Prettier)
+
+---
+
+## ☁️ Google Cloud Integration
+
+The `/cloud_integration` directory contains scripts for syncing event/course submissions from Google Sheets via service account authentication.
+
+---
 
 **_Made by [@codeaddi](https://www.instagram.com/codeaddi/)_**

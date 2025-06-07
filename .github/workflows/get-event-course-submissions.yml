@@ -6,7 +6,7 @@ on:
     - cron: "0 0 * * *" # daily at midnight UTC
 
 jobs:
-  fetch_courses:
+  fetch_courses_and_events:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,18 +24,28 @@ jobs:
       - name: Decode credentials from secret
         run: echo "${{ secrets.GOOGLE_CREDENTIALS }}" | base64 -d > cloud_integration/credentials.json
 
-      - name: Run fetch script
+      # Fetch and append courses
+      - name: Run fetch_learning_submissions.py
         working-directory: cloud_integration
         run: python fetch_learning_submissions.py
 
-      - name: Append new courses to root courses.json
+      - name: Run append_to_courses.py
         working-directory: cloud_integration
         run: python append_to_courses.py
 
-      - name: Commit updated courses.json
+      # Fetch and append events
+      - name: Run fetch_event_submissions.py
+        working-directory: cloud_integration
+        run: python fetch_event_submissions.py
+
+      - name: Run append_to_events.py
+        working-directory: cloud_integration
+        run: python append_to_events.py
+
+      - name: Commit updated data files
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add courses.json
-          git commit -m "Update courses.json from Google Sheets" || echo "No changes"
+          git add courses.json events.json
+          git commit -m "Update courses and events JSON from Google Sheets" || echo "No changes"
           git push
