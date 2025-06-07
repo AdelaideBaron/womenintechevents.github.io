@@ -1,0 +1,41 @@
+name: Update Courses and Events from Google Sheets
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *" # daily at midnight UTC
+
+jobs:
+  fetch_courses:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r cloud_integration/requirements.txt
+
+      - name: Decode credentials from secret
+        run: echo "${{ secrets.GOOGLE_CREDENTIALS }}" | base64 -d > cloud_integration/credentials.json
+
+      - name: Run fetch script
+        working-directory: cloud_integration
+        run: python fetch_learning_submissions.py
+
+      - name: Append new courses to root courses.json
+        working-directory: cloud_integration
+        run: python append_to_courses.py
+
+      - name: Commit updated courses.json
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add courses.json
+          git commit -m "Update courses.json from Google Sheets" || echo "No changes"
+          git push

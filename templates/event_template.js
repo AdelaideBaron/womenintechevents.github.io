@@ -29,7 +29,6 @@ export const events = [
 
 /* TYPES: 
   Conference
-  Course 
   Grant Application
   Occasion 
   Online Talk
