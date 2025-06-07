@@ -53,55 +53,97 @@
           document.getElementById("filters").appendChild(regionLabel);
           document.getElementById("filters").appendChild(regionFilter);
 
-          // Collect unique tags and countries
+          // Filter by provider dropdown
+          // Add provider filter dropdown
+          const providerFilter = document.createElement("select");
+          providerFilter.id = "providerFilter";
+          const providerLabel = document.createElement("label");
+          providerLabel.htmlFor = "providerFilter";
+          providerLabel.textContent = "Filter by provider:";
+          document.getElementById("filters").appendChild(providerLabel);
+          document.getElementById("filters").appendChild(providerFilter);
+
+          // Collect unique tags, providers, and countries
           const allTags = new Set();
           const allCountries = new Set(["all"]);
+          const allProviders = new Set(["all"]);
+
           courses.forEach((course) => {
             course.tags.forEach((tag) => allTags.add(tag));
+            allProviders.add(course.provider);
 
-            const region = course.region_available.toLowerCase();
-            if (region === "none specified") {
+            const regionRaw = course.region_available.toLowerCase();
+            if (regionRaw === "none specified") {
               allCountries.add("none specified");
             } else {
-              const country = region.split(":")[0].trim();
-              if (country) allCountries.add(country);
+              const regionParts = regionRaw.split(";");
+              regionParts.forEach((part) => {
+                const country = part.split(":")[0].trim();
+                if (country) allCountries.add(country);
+              });
             }
           });
 
-          allTags.forEach((tag) => {
-            const option = document.createElement("option");
-            option.value = tag;
-            option.textContent = tag;
-            tagFilter.appendChild(option);
-          });
+          Array.from(allTags)
+            .sort((a, b) => a.localeCompare(b)) // Alphabetical sort
+            .forEach((tag) => {
+              const option = document.createElement("option");
+              option.value = tag;
+              option.textContent = tag;
+              tagFilter.appendChild(option);
+            });
 
-          allCountries.forEach((country) => {
-            const option = document.createElement("option");
-            option.value = country;
-            option.textContent =
-              country === "none specified"
-                ? "None Specified"
-                : country.charAt(0).toUpperCase() + country.slice(1);
-            regionFilter.appendChild(option);
-          });
+          Array.from(allProviders)
+            .sort((a, b) => a.localeCompare(b))
+            .forEach((provider) => {
+              const option = document.createElement("option");
+              option.value = provider;
+              option.textContent = provider;
+              providerFilter.appendChild(option);
+            });
 
-          function renderCourses(filterTag = "all", filterRegion = "all") {
+          Array.from(allCountries)
+            .sort((a, b) => a.localeCompare(b))
+            .forEach((country) => {
+              const option = document.createElement("option");
+              option.value = country;
+              option.textContent =
+                country === "none specified"
+                  ? "None Specified"
+                  : country.charAt(0).toUpperCase() + country.slice(1);
+              regionFilter.appendChild(option);
+            });
+
+          function renderCourses(
+            filterTag = "all",
+            filterRegion = "all",
+            filterProvider = "all"
+          ) {
             coursesContainer.innerHTML = "";
 
             let filteredCourses = courses.filter((course) => {
               const matchesTag =
                 filterTag === "all" || course.tags.includes(filterTag);
 
-              const region = course.region_available.toLowerCase();
-              const courseCountry =
-                region === "none specified"
-                  ? "none specified"
-                  : region.split(":")[0].trim();
+              const regionText = course.region_available.toLowerCase();
+              let courseCountries = [];
+
+              if (regionText === "none specified") {
+                courseCountries = ["none specified"];
+              } else {
+                courseCountries = regionText
+                  .split(";")
+                  .map((part) => part.split(":")[0].trim());
+              }
 
               const matchesRegion =
-                filterRegion === "all" || courseCountry === filterRegion;
+                filterRegion === "all" ||
+                courseCountries.includes(filterRegion);
 
-              return matchesTag && matchesRegion;
+              const matchesProvider =
+                filterProvider === "all" || course.provider === filterProvider;
+
+              return matchesTag && matchesRegion && matchesProvider;
             });
 
             filteredCourses.sort((a, b) => {
@@ -192,14 +234,30 @@
             });
           }
 
-          renderCourses();
+          renderCourses("all", "all", "all");
 
           tagFilter.addEventListener("change", () => {
-            renderCourses(tagFilter.value, regionFilter.value);
+            renderCourses(
+              tagFilter.value,
+              regionFilter.value,
+              providerFilter.value
+            );
           });
 
           regionFilter.addEventListener("change", () => {
-            renderCourses(tagFilter.value, regionFilter.value);
+            renderCourses(
+              tagFilter.value,
+              regionFilter.value,
+              providerFilter.value
+            );
+          });
+
+          providerFilter.addEventListener("change", () => {
+            renderCourses(
+              tagFilter.value,
+              regionFilter.value,
+              providerFilter.value
+            );
           });
         });
 
