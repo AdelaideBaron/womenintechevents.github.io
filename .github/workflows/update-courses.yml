@@ -24,7 +24,8 @@ jobs:
         run: echo "${{ secrets.GOOGLE_CREDENTIALS }}" | base64 -d > cloud_integration/credentials.json
 
       - name: Run fetch script
-        run: python cloud_integration/fetch_learning_submissions.py
+        working-directory: cloud_integration
+        run: python fetch_learning_submissions.py
 
       - name: Commit updated courses.json
         run: |
