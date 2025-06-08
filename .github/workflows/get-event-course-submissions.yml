@@ -46,6 +46,6 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add courses.json events.json
+          git add courses.json js/events.json
           git commit -m "Update courses and events JSON from Google Sheets" || echo "No changes"
           git push
