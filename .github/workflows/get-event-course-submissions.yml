@@ -3,7 +3,7 @@ name: Update Courses and Events from Google Sheets
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *" # daily at midnight UTC
+    - cron: "0 * * * *" # every hour on the hour
 
 jobs:
   fetch_courses_and_events:
