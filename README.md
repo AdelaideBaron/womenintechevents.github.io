@@ -1,6 +1,6 @@
 # [womenintechevents.github.io](https://adelaidebaron.github.io/womenintechevents.github.io/)
 
-A simple webpage for showcasing opportunities for women in tech — events, courses, programs, and more — all in one place.
+A simple webpage for showcasing opportunities for all in tech — events, courses, programs, and more — all in one place. Highlighting events targeted at women. 
 
 <details>
   <summary>Includes opportunities like:</summary>
