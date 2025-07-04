@@ -1,8 +1,8 @@
 name: Update Courses and Events from Google Sheets
 
 permissions:
-  contents: write
-
+  contents: write        
+  pull-requests: write   
 
 on:
   workflow_dispatch:
@@ -15,7 +15,9 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -28,7 +30,6 @@ jobs:
       - name: Decode credentials from secret
         run: echo "${{ secrets.GOOGLE_CREDENTIALS }}" | base64 -d > cloud_integration/credentials.json
 
-      # Fetch and append courses
       - name: Run fetch_learning_submissions.py
         working-directory: cloud_integration
         run: python fetch_learning_submissions.py
@@ -37,7 +38,6 @@ jobs:
         working-directory: cloud_integration
         run: python append_to_courses.py
 
-      # Fetch and append events
       - name: Run fetch_event_submissions.py
         working-directory: cloud_integration
         run: python fetch_event_submissions.py
@@ -46,12 +46,14 @@ jobs:
         working-directory: cloud_integration
         run: python append_to_events.py
 
-      - name: Commit updated data files
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add --all
-          git commit -m "Update courses and events JSON from Google Sheets" || echo "No changes"
-          git push
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: update courses & events JSON"
+          title: "Automated data sync: courses & events"
+          body: |
+            This PR contains the latest exported data from Google Sheets.
+            Generated automatically by the **Update Courses and Events from Google Sheets** workflow.
+          branch: "data-sync/${{ github.run_id }}"   
+          labels: automated, data-sync
+          delete-branch: true       
