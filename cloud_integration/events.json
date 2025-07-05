@@ -1,0 +1,38 @@
+[
+  {
+    "date": "12/06/2025",
+    "time": "07:00:00",
+    "finish_time": "09:00:00",
+    "title": "vsdsd",
+    "location": "In-person",
+    "country": "ewqedqd",
+    "coordinates": {
+      "longitude": "",
+      "latitude": ""
+    },
+    "cost": "Free",
+    "audience": "All",
+    "description": "dsvsdv",
+    "event_type": "Conference",
+    "link": "",
+    "women_focussed": "✅"
+  },
+  {
+    "date": "23/06/2025",
+    "time": "00:00:00",
+    "finish_time": "23:59:00",
+    "title": "International Women in Engineering Day",
+    "location": "In-person",
+    "country": "Any",
+    "coordinates": {
+      "longitude": "",
+      "latitude": ""
+    },
+    "cost": "Free",
+    "audience": "All",
+    "description": "International Women in Engineering Day",
+    "event_type": "Occassion",
+    "link": "https://www.bing.com/ck/a?!&&p=ef28729172d8962e0f6f6b38ab732464600d22bb7f15b8a15555bfc972758bc5JmltdHM9MTc0OTYwMDAwMA&ptn=3&ver=2&hsh=4&fclid=0407fac0-55a5-6126-3e9b-ecc8543e60f1&psq=international+women+in+engineering+dy&u=a1aHR0cHM6Ly93d3cuaW53ZWQub3JnLnVrLw&ntb=1",
+    "women_focussed": "✅"
+  }
+]
